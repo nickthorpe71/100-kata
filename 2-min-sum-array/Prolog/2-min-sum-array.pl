@@ -1,3 +1,13 @@
+% Define a predicate to generate a list of N random integers
+generateRandomNumbers(N, Max, List) :-
+  N > 0,                                     % Check if N is greater than 0
+  NewN is N - 1,                             % Decrement N
+  random(0, Max, R),                         % Generate a random number between 0 and Max and save to R
+  generateRandomNumbers(NewN, Max, NewList), % Recursively generate the rest of the list, passing Max along
+  append([R], NewList, List).                % Add the random number R to the list
+generateRandomNumbers(0, _, []).             % Base case: if N is 0, the list is empty. Added _ to ignore Max when N is 0
+
+
 % Define a predicate to split a list into two halves 
 splitList(L, A, B) :- 
   length(L, N),
@@ -25,8 +35,8 @@ minSum(L, Sum) :-
 
 % Test case predicate to run a test
 testCase(List) :-
-  writeln('Testing with list: '),
-  writeln(List),
+  % writeln('Testing with list: '),
+  % writeln(List),
   minSum(List, Sum),
   write('Result: '),
   writeln(Sum),
@@ -34,8 +44,11 @@ testCase(List) :-
 
 % Main predicate to run all test cases
 main :-
-  testCase([5,4,2,3]),
-  testCase([12,6,10,26,3,24]),
+  generateRandomNumbers(1000000, 100, RandomNumbers),
+  statistics(walltime, [TimeSinceStart | [TimeSinceLastCall]]),
+  testCase(RandomNumbers),
+  statistics(walltime, [NewTimeSinceStart | [ExecutionTime]]),
+  format('Execution took ~3d seconds.~n', [ExecutionTime]),
   halt.
 
 % Initialization directive

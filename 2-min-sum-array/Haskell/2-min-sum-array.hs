@@ -2,6 +2,8 @@ module Main where
 
 import Test.HUnit
 import Data.List (sort)
+import Data.Time (getCurrentTime, diffUTCTime)
+import System.Random
 
 -- Define functions
 minSum :: [Int] -> Int
@@ -23,7 +25,13 @@ testSuite = TestList [TestLabel "returns 22" test1, TestLabel "returns 342" test
 main :: IO ()
 main = do
   -- Run the test suite
-  counts <- runTestTT testSuite
-  -- Print the test results
-  putStrLn $ show counts
+  -- counts <- runTestTT testSuite
+  gen <- newStdGen
+  let randomNumbers = take 1000000 (randoms gen :: [Int])
+  start <- getCurrentTime
+  let sum = minSum randomNumbers
+  print sum
+  end <- getCurrentTime
+  print (diffUTCTime end start)
+  -- putStrLn $ show counts
 

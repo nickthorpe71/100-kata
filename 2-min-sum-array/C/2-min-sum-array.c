@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<time.h>
 
 int compare(const void *a, const void *b)
 {
@@ -23,8 +24,28 @@ int minSum(int a[], int n)
 
 int main() 
 {
-  printf("%d -> 22\n", minSum((int[]){5,4,2,3}, 4));
-  printf("%d -> 342\n", minSum((int[]){12,6,10,26,3,24}, 6));
+  int testLen = 1000000;
+  int testNums[testLen];
+  int i;
+
+  srand(time(0));
+
+  for (i = 0; i < testLen; i++)
+  {
+    testNums[i] = rand();
+  }
+
+  clock_t start, end;
+  double cpu_time_used;
+  start = clock();
+  //call functions here\n"
+  
+  printf("%d", minSum(testNums, testLen));
+  
+  end = clock();
+  cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+  printf("Time elapsed: %f\n", cpu_time_used);
+
 	return 0;
 }
 

@@ -42,3 +42,18 @@ The prolog solution was similar to the haskell solution but the haskell solution
 - Splitting and reversing: O(n) for list operations.
 - Calculating the sum of products: O(n) for traversing the lists.
 - Total Complexity: O(n log n) (dominated by the sorting step).
+
+## Benchmarks
+
+To compare each language, the minSum solution was run with 1000000 random numbers.
+
+- **C:**       0.112s (no surprise)
+- **Haskell:** 2.861s (likely due to poorly written haskell but also could be due to the runtime/execution model)
+- **Prolog:**  0.902s ()
+- **JS:**      0.228s (thanks to Node/V8)
+
+The biggest surprise is how well JS did. It's tempting to do more tests with larger arrays but that might have to wait for the next challenge.
+
+
+
+

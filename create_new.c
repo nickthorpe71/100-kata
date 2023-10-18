@@ -23,17 +23,26 @@ struct LanguageTemplate
 
 char *c_template()
 {
-    return "#include<stdio.h>\n\n"
+    return "#include<stdio.h>\n"
+           "#include<time.h>\n\n"
            "int main() \n"
            "{\n"
-           "\treturn 0;\n"
+           "  clock_t start, end;\n"
+           "  double cpu_time_used;\n\n"
+           "  start = clock();\n"
+           "  //call functions here\n"
+           "  end = clock();\n"
+           "  cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;\n"
+           "  printf(\"Time elapsed: %f\\n\", cpu_time_used);\n"
+           "  return 0;\n"
            "}\n";
 }
 
 char *haskell_template()
 {
     return "module Main where\n\n"
-           "import Test.HUnit\n\n"
+           "import Test.HUnit\n"
+           "import Data.Time (getCurrentTime, diffUTCTime)\n\n"
            "-- Define functions\n"
            "oddOrEven :: Int -> String\n"
            "oddOrEven n = if odd n then \"Odd\" else \"Even\"\n\n"
@@ -45,10 +54,13 @@ char *haskell_template()
            "testSuite = TestList [TestLabel \"Test Even\" testEven, TestLabel \"TestOdd\" testOdd]\n"
            "main :: IO ()\n"
            "main = do\n"
-           "\t-- Run the test suite\n"
-           "\tcounts <- runTestTT testSuite\n"
-           "\t-- Print the test results\n"
-           "\tputStrLn shot counts\n";
+           "  start <- getCurrentTime\n"
+           "  -- Run the test suite\n"
+           "  counts <- runTestTT testSuite\n"
+           "  end <- getCurrentTime\n"
+           "  -- Print the test results\n"
+           "  print (diffUTCTime end start)\n"
+           "  putStrLn $ show counts\n";
 }
 
 char *prolog_template()
@@ -69,15 +81,20 @@ char *prolog_template()
            "% Test examples\n"
            ":- initialization(main).\n"
            "main :-\n"
+           "  statistics(walltime, [TimeSinceStart | [TimeSinceLastCall]]),\n"
            "  print_even_or_odd(12),\n"
            "  print_even_or_odd(11),\n"
+           "  statistics(walltime, [NewTimeSinceStart | [ExecutionTime]]),\n"
+           "  format('Execution took ~3d seconds.~n', [ExecutionTime]),\n"
            "  halt.\n";
 }
 
 char *js_template()
 {
     return "function main() {\n"
-           "\tconsole.log(\"Hello World!\");\n"
+           "  console.time('Execution Time');\n"
+           "  console.log(\"Hello World!\");\n"
+           "  console.timeEnd('Execution Time');\n"
            "}\n\n"
            "main();\n";
 }

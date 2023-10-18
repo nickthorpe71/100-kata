@@ -5,10 +5,15 @@ function minSum(arr) {
     res + sorted[i] * sorted[sorted.length - 1 - i], 0);
 }
 
+function generateRandomNumbers(n, min, max) {
+    return Array.from({length: n}, () => Math.floor(Math.random() * (max - min + 1) + min));
+} 
 
 function main() {
-  console.log(minSum([5,4,2,3], "-> 22"));
-  console.log(minSum([12,6,10,26,3,24], "-> 342"));
+  const randomNumbers = generateRandomNumbers(1000000, 0, 1000);
+  console.time("Execution Time");
+  console.log(minSum(randomNumbers, "-> 9107682643308652960"));
+  console.timeEnd("Execution Time");
 }
 
 main();
