@@ -1,23 +1,42 @@
-% Define a predicate to check if a number is even
-is_even(N) :-
-  N mod 2 =:= 0.
+% Define a predicate to split a list into two halves 
+splitList(L, A, B) :- 
+  length(L, N),
+  H is N - N//2,
+  length(A, H),
+  append(A, B, L).
 
-% Define a predicate to check if a number is odd
-is_odd(N) :-
-  not(is_even(N)).
+% Define a predicate to reverse a list 
+reverseList([], Z, Z).
+reverseList([H|T], Z, Acc) :- reverseList(T, Z, [H|Acc]).
 
-% Define a predicate to print whether a number is even or odd
-print_even_or_odd(N) :-
-  is_even(N),
-  write(N), write(' is even.'), nl.
-print_even_or_odd(N) :-
-  is_odd(N),
-  write(N), write(' is odd.'), nl.
+% Define a predicate to calculate the sum of products of two lists
+sumOfProducts([], [], Acc, Acc).
+sumOfProducts([H1|T1], [H2|T2], Acc, Sum) :-
+  Product is H1 * H2,
+  NewAcc is Acc + Product,
+  sumOfProducts(T1, T2, NewAcc, Sum).
 
-% Test examples
-:- initialization(main).
+% Define a predicate to calculate the minimum sum of products
+minSum(L, Sum) :-
+  sort(0, @=<, L, Sorted), % Sort the list in ascending order
+  splitList(Sorted, FirstHalf, SecondHalf), % Split the list into two halves
+  reverseList(SecondHalf, ReversedSecondHalf, []), % Reverse the second half
+  sumOfProducts(FirstHalf, ReversedSecondHalf, 0, Sum). % Calculate the sum of products
+
+% Test case predicate to run a test
+testCase(List) :-
+  writeln('Testing with list: '),
+  writeln(List),
+  minSum(List, Sum),
+  write('Result: '),
+  writeln(Sum),
+  nl.  % New line for better readability
+
+% Main predicate to run all test cases
 main :-
-  print_even_or_odd(12),
-  print_even_or_odd(11),
+  testCase([5,4,2,3]),
+  testCase([12,6,10,26,3,24]),
   halt.
 
+% Initialization directive
+:- initialization(main).
