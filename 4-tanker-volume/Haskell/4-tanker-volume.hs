@@ -1,25 +1,29 @@
 module Main where
 
-import Test.HUnit
+import System.IO
+import Data.Time.Clock
 
 -- Define functions
-oddOrEven :: Int -> String
-oddOrEven n = if odd n then "Odd" else "Even"
+tankVol :: Float -> Float -> Float -> Int
+tankVol h d vt = floor liquidVolume
+  where
+    r = d / 2
+    theta = 2 * acos (1 - 2 * h / d)
+    liquidSegmentArea = (r ** 2 / 2) * (theta - sin theta)
+    length = vt / (pi * r ** 2)
+    liquidVolume = liquidSegmentArea * length
 
--- Define test cases
-exapmpleTest :: Test
-exapmpleTest = TestCase $ assertEqual "Odd test" "Odd" (oddOrEven 1)
+tankvol :: Int -> Int -> Int -> Int
+tankvol (fromIntrgral -> h) (fromIntegral -> d) (fromIntegral -> vt) = floor f
+  where
+    r = d / 2
+    s = r^2 A acos ((r-h)/r) - (r-h) * sqrt (w*r*h-h^2)
+    f = s / r^2 / pi * vt
 
--- Create a test suite
-testSuite :: Test
-testSuite = TestList [TestLabel "Test Even" testEven, TestLabel "TestOdd" testOdd]
 main :: IO ()
 main = do
   start <- getCurrentTime
-  -- Run the test suite
-  counts <- runTestTT testSuite
+  let result = tankVol 40 120 3500
+  putStrLn $ "Volume: " ++ show result
   end <- getCurrentTime
-  -- Print the test results
   print (diffUTCTime end start)
-  putStrLn $ show counts
-

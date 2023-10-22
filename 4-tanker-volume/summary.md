@@ -10,4 +10,19 @@ Started with JS again to make sure I had a working solution before trying to imp
 **C**
 Moved to C next assuming it would be a pretty easy translation from JS. It was necessary for me to look up the math.h library and how to do floating point calculations. Initially I was doing interger division and the results were inaccurate. I also learned that the -lm flag is necessary when using the math.h library. 
 
+**Haskell**
+In haskell I was introduced to the `where` clause which is used for defining variables and functions that are local to a particular scope. With this the code actually looked very similar to the JS solution except with a nice typed input/ouput signature.
+
+**Prolog**
+I was very close to dropping prolog today, but I'm glad I didn't. I really enjoy how easy prolog programs are to read now that I'm starting to understand the syntax. That could be a related to the type of problem but it was still eye opening. 
+
+
+**Benchmarks**
+*not overly necessary today but just for practice*
+- **JavaScript:** 0.0024s
+- **C:** 0.0001s
+- **Haskell:** 0.0045s
+- **Prolog:** 0.0110s
+
+
 

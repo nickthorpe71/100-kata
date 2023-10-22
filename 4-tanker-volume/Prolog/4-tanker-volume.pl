@@ -1,26 +1,34 @@
-% Define a predicate to check if a number is even
-is_even(N) :-
-  N mod 2 =:= 0.
+% Helper predicates for arithmetic operations
+pow(X,Y,R) :- R is X**Y.
+acos(X,R) :- R is acos(X).
+sqrt(X,R) :- R is sqrt(X).
+pi(R) :- R is pi.
 
-% Define a predicate to check if a number is odd
-is_odd(N) :-
-  not(is_even(N)).
+% Main predicate to calculate thank volume
+tankvol(H,D,VT,Volume) :-
+  R is D / 2,
+  A is (R-H) / R,
+  acos(A, ACOS),
+  S1 is R**2 * ACOS,
+  W is 2*R*H - H**2,
+  sqrt(W, SQRT),
+  S2 is (R-H) * SQRT,
+  S is S1 - S2,
+  F is S / R**2 / pi * VT,
+  floor(F, Volume).
 
-% Define a predicate to print whether a number is even or odd
-print_even_or_odd(N) :-
-  is_even(N),
-  write(N), write(' is even.'), nl.
-print_even_or_odd(N) :-
-  is_odd(N),
-  write(N), write(' is odd.'), nl.
+% Print the volume
+print_volume(H, D, VT) :-
+  tankvol(H,D,VT,Volume),
+  format('Volume: ~w~n', [Volume]).
 
-% Test examples
-:- initialization(main).
 main :-
   statistics(walltime, [TimeSinceStart | [TimeSinceLastCall]]),
-  print_even_or_odd(12),
-  print_even_or_odd(11),
+  print_volume(40,120,3500),
   statistics(walltime, [NewTimeSinceStart | [ExecutionTime]]),
-  firnat('Execution took ~3d seconds.~n', [ExecutionTime]),
+  format('Execution took ~3d seconds.~n', [ExecutionTime]),
   halt.
+
+% Initialization directive
+:- initialization(main).  
 
