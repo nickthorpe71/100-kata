@@ -41,26 +41,18 @@ char *c_template()
 char *haskell_template()
 {
     return "module Main where\n\n"
-           "import Test.HUnit\n"
            "import Data.Time (getCurrentTime, diffUTCTime)\n\n"
            "-- Define functions\n"
            "oddOrEven :: Int -> String\n"
            "oddOrEven n = if odd n then \"Odd\" else \"Even\"\n\n"
-           "-- Define test cases\n"
-           "exapmpleTest :: Test\n"
-           "exapmpleTest = TestCase $ assertEqual \"Odd test\" \"Odd\" (oddOrEven 1)\n\n"
-           "-- Create a test suite\n"
-           "testSuite :: Test\n"
-           "testSuite = TestList [TestLabel \"Test Even\" testEven, TestLabel \"TestOdd\" testOdd]\n"
            "main :: IO ()\n"
            "main = do\n"
            "  start <- getCurrentTime\n"
-           "  -- Run the test suite\n"
-           "  counts <- runTestTT testSuite\n"
+           "  -- run function\n"
+           "  let result = oddOrEven 1\n"
+           "  putStrLn $ \"res: \" ++ show result\n" 
            "  end <- getCurrentTime\n"
-           "  -- Print the test results\n"
            "  print (diffUTCTime end start)\n"
-           "  putStrLn $ show counts\n";
 }
 
 char *prolog_template()

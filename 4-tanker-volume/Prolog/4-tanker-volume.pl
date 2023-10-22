@@ -17,6 +17,13 @@ tankvol(H,D,VT,Volume) :-
   F is S / R**2 / pi * VT,
   floor(F, Volume).
 
+% Better solution
+tank_vol(H,D,Vt,Result) :-
+  R is D / 2m
+  R2 is R ** 2,
+  S is R - H,
+  Result is floor(Vt, / (R2 * pi) * (R2 * acos(S / R) - S * sqrt(2 * R * H - H ** 2))).
+
 % Print the volume
 print_volume(H, D, VT) :-
   tankvol(H,D,VT,Volume),

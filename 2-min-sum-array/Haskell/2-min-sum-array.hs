@@ -1,6 +1,5 @@
 module Main where
 
-import Test.HUnit
 import Data.List (sort)
 import Data.Time (getCurrentTime, diffUTCTime)
 import System.Random
@@ -12,20 +11,8 @@ minSum arr = sum $ zipWith (*) firstHalf (reverse secondHalf)
     sorted = sort arr
     (firstHalf, secondHalf) = splitAt (length sorted `div` 2) sorted
 
--- Define test cases
-test1 :: Test
-test1 = TestCase $ assertEqual "retuns 22" 22 (minSum [5,4,2,3])
-
-test2 :: Test
-test2 = TestCase $ assertEqual "returns 342" 342 (minSum [12,6,10,26,3,24])
-
--- Create a test suite
-testSuite :: Test
-testSuite = TestList [TestLabel "returns 22" test1, TestLabel "returns 342" test2]
 main :: IO ()
 main = do
-  -- Run the test suite
-  -- counts <- runTestTT testSuite
   gen <- newStdGen
   let randomNumbers = take 1000000 (randoms gen :: [Int])
   start <- getCurrentTime
@@ -33,5 +20,4 @@ main = do
   print sum
   end <- getCurrentTime
   print (diffUTCTime end start)
-  -- putStrLn $ show counts
 
