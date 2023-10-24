@@ -52,7 +52,7 @@ char *haskell_template()
            "  let result = oddOrEven 1\n"
            "  putStrLn $ \"res: \" ++ show result\n" 
            "  end <- getCurrentTime\n"
-           "  print (diffUTCTime end start)\n"
+           "  print (diffUTCTime end start)\n";
 }
 
 char *prolog_template()
