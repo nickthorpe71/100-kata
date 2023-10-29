@@ -20,4 +20,5 @@ After implementing in JS I moved on to haskell. I think I'm finally starting to 
 This is the first string based kata I've tackled in this challenge so it gave me a chance to look into the string section of Cs standard lib (string.h). I also found memmove which allows you to move memory from one address to another. This was useful in "deleting" characters from the current string. This kind of pseudo delete was essentially moving the character following the character you're tring to delete to the address of the character you're trying to delete.
 
 **Prolog**
+I found the syntax and approach for this problem in prolog to be pretty unpleasant. I noticed that some of the useful things in prolog also exist in erlang/elixir. I might swap out prolog (and potentially haskell) in place of either erlang or elixir.
 
