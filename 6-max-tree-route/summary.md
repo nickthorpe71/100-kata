@@ -12,4 +12,7 @@ Was able to get some more practice and a better understanding in allocating and 
 **Haskell**
 The haskell implementation was eye opening. This was my first interaction with Just, Maybe, and Nothing. I have heard or monads before but they always sounded very abstract. Actually using them in practice makes them seem much more approachable. I'm sure there is much much more to learn. Looking forward to improving my knowledge of haskell.
 
+**Prolog**
+The prolog implementation was not as slick as haskell. The idea of solving problems through the lens of predicate calculus is intriguing but I'm still debating dropping proglog in these experiments for the sake of sime so I can focus more on C and Haskell.
+
 
