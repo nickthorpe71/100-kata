@@ -9,4 +9,7 @@ Once again I started with JS. It seems like I either need to get better with one
 **C**
 Was able to get some more practice and a better understanding in allocating and freeing memory with this exercise. I would like to start the next problem with C as it seems to help me visualize an image of how the data is passed and structured.
 
+**Haskell**
+The haskell implementation was eye opening. This was my first interaction with Just, Maybe, and Nothing. I have heard or monads before but they always sounded very abstract. Actually using them in practice makes them seem much more approachable. I'm sure there is much much more to learn. Looking forward to improving my knowledge of haskell.
+
 
