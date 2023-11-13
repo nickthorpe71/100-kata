@@ -1,15 +1,28 @@
 #include<stdio.h>
 #include<time.h>
-#include <stdlib.h>
-#include <stdbool.h>
+#include<stdlib.h>
+#include<stdbool.h>
+#include<string.h> 
 
-// determine length of number
-// if even double every other starting from the first
-// if odd double every other starting from second
-// for each doubled number, if it is > 9, subtract 9
-// sum all digits
 // r = sum mod 10
 // return r === 0
+
+int* cloneIntArr(const int* original, int size) {
+  int* clone = malloc(size * sizeof(int));
+  if (clone == NULL) {
+    return NULL;
+  }
+  memcpy(clone, original, size * sizeof(int));
+  return clone;
+}
+
+int sumIntArr(const int* original, int size) {
+  int sum = 0;
+  for (int i = 0; i < size; i++) {
+    sum += original[i];
+  }
+  return sum;
+}
 
 int getNumDigits(long n) {
   int size = 0;
@@ -36,10 +49,32 @@ int* getDigitArr(long digits, int size) {
   return digitArr;
 }
 
-bool validate(long digits) {
-  int numDigits = getNumDigits(digits);
-  int* digitArr = getDigitArr(digits, numDigits);
+int* doubleAlternating(int* digitArr, int startIndex, int length) {
+  int* arrClone = cloneIntArr(digitArr, length);
+  int i = startIndex;
 
+  while (i < length) {
+    arrClone[i] *= 2;
+    if (arrClone[i] > 9) {
+      arrClone[i] -= 9;
+    }
+    i += 2;
+  }
+
+  return arrClone;
+}
+
+bool validate(long digits) {
+  int len = getNumDigits(digits);
+  int* arr = getDigitArr(digits, len);
+  int startIndex = len % 2 == 0 ? 0 : 1;
+  int* doubled = doubleAlternating(arr, startIndex, len);
+  int sum = sumIntArr(doubled, len);
+
+  free(arr);
+  free(doubled);
+
+  return sum % 10 == 0;
 }
 
 int main() 
@@ -50,16 +85,7 @@ int main()
   start = clock();
 
   long test = 4653151235;
-  int testLen = getNumDigits(test);
-  int* testArr = getDigitArr(test, testLen);
-  
-  printf("num: %ld\n", test);
-  printf("len: %d should be 10\n", testLen); 
-  printf("arr: ");
-  for (int i = 0; i < testLen; i++) {
-    printf("%d ", testArr[i]);
-  }
-  printf("\n");
+  printf("%d", validate(test));
 
   end = clock();
   cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
