@@ -2,16 +2,16 @@ module Main where
 
 import Data.Time (getCurrentTime, diffUTCTime)
 
--- Define functions
-oddOrEven :: Int -> String
-oddOrEven n = if odd n then "Odd" else "Even"
+validate :: Integer -> Bool
+validate = (== 0) . (`mod` 10) . sum . zipWith ($) (cycle [id, sum . digits . (*2)]) . reverse . digits
+  where digits = map (read . return) . show
 
 main :: IO ()
 main = do
   start <- getCurrentTime
-  -- run function
-  let result = oddOrEven 1
-  putStrLn $ "res: " ++ show result
+  
+  print $ validate 2121 
+
   end <- getCurrentTime
   print (diffUTCTime end start)
 
