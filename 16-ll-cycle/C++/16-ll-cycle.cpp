@@ -39,6 +39,36 @@ int getLengthOfCycle(Node *startNode)
     return 0;
 }
 
+int tortoiseHare(Node *startNode)
+{
+    Node *tortoise = startNode;
+    Node *hare = startNode->next;
+
+    // Move the hare two nodes ahead of the tortoise
+    while (hare != nullptr && hare->next != nullptr)
+    {
+        tortoise = tortoise->next;
+        hare = hare->next->next;
+
+        // If the tortoise and hare meet, there is a loop
+        if (tortoise == hare)
+        {
+            // Start measuring the loop size
+            int loopSize = 0;
+            do
+            {
+                tortoise = tortoise->next;
+                loopSize++;
+            } while (tortoise != hare);
+
+            return loopSize;
+        }
+    }
+
+    // If the loop is not found, return 0
+    return 0;
+}
+
 int main()
 {
     // Example usage
