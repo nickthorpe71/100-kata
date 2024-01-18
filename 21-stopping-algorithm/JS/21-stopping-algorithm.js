@@ -38,8 +38,6 @@ function testPerformance(prices, selected) {
 function main() {
     console.time("Execution Time");
 
-    // run the below code 100 times to get a good average
-
     const numRuns = 1000;
 
     let total = 0;
