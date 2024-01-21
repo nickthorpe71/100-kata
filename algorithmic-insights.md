@@ -5,6 +5,9 @@
 -   [1. Graph Theory](#1-graph-theory)
     -   [1A. Trees](#1A-trees)
         -   [1Aa. Binary Trees](#1Aa-binary-trees)
+-   [2. Number Theory](#2-number-theory)
+    -   [2A. Prime Numbers](#2A-prime-numbers)
+    -   [2B. Digit Sums](#2B-digit-sums)
 
 ## 1. Graph Theory
 
@@ -103,5 +106,71 @@ function maxSum(root) {
 
     // Return the node's value plus the greater of the max sums from the left and right subtrees
     return root.value + Math.max(leftMaxSum, rightMaxSum);
+}
+```
+
+## 2. Number Theory
+
+Number Theory is a branch of mathematics that has a rich history and plays a vital role in various fields. It's one of the oldest and most fundamental branches of mathematics. It serves as the foundation for many mathematical concepts and theories.
+
+##### Why is Number Theory Useful?
+
+-   **Secure Communications:** Number Theory has revolutionized secure communication by providing the mathematical foundation for encryption methods. It ensures the confidentiality and privacy of digital information in everyday online transactions and communications.
+-   **Efficient Algorithms:** Number Theory contributes to the development of efficient algorithms used in computer science, making computations faster and more reliable.
+-   **Pioneering Discoveries:** Number Theory has led to groundbreaking mathematical discoveries, such as the proof of Fermat's Last Theorem by Andrew Wiles.
+-   **Problem Solving:** Number Theory presents intriguing and challenging mathematical problems that engage mathematicians in problem-solving and contribute to the advancement of mathematics as a whole.
+-   **Mathematical Beauty:** The elegance and beauty of Number Theory are appreciated by mathematicians and enthusiasts worldwide, inspiring a love for mathematics.
+
+## 2A. Prime Numbers
+
+A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself. In other words, it cannot be evenly divided by any other number except 1 and the number itself.
+
+## 2B. Digit Sums
+
+Digit sum calculation refers to the process of summing up the individual digits of a given integer. For example, for the integer 456, the digit sum is calculated as `4+5+6=15`. In numerical analysis and computational mathematics, digit sums may be used as a tool for understanding the behavior of numerical algorithms and their results. They can help identify regularities or anomalies in numerical data.
+
+##### Primary Use: Data Integrity
+
+Digit sums are often used to validate and verify numerical data, ensuring its accuracy and integrity. By summing the individual digits of a number, digit sums provide a simple yet effective way to catch errors, detect discrepancies, and maintain data reliability in various applications, from credit card number validation to barcode verification.
+
+##### Examples
+
+```js
+function calculateDigitSum(number) {
+    // Calculate the digit sum of a number
+    return number
+        .toString()
+        .split("")
+        .reduce((sum, digit) => sum + parseInt(digit), 0);
+}
+
+function validateCreditCardNumber(cardNumber) {
+    // Remove spaces and non-digit characters from the card number
+    const cleanCardNumber = cardNumber.replace(/\D/g, "");
+
+    // Check if the card number is a valid length (e.g., 16 digits for most credit cards)
+    if (cleanCardNumber.length !== 16) {
+        return false;
+    }
+
+    // Calculate the digit sum of the card number
+    const digitSum = calculateDigitSum(cleanCardNumber);
+
+    // Check if the digit sum is divisible by 10 (a common credit card validation criterion)
+    if (digitSum % 10 === 0) {
+        return true; // Valid credit card number
+    } else {
+        return false; // Invalid credit card number
+    }
+}
+
+// Example usage:
+const creditCardNumber = "1234 5678 9012 3456";
+const isValid = validateCreditCardNumber(creditCardNumber);
+
+if (isValid) {
+    console.log("Credit card number is valid.");
+} else {
+    console.log("Credit card number is invalid.");
 }
 ```
