@@ -7,6 +7,8 @@ Welcome to "Algorithmic Insights: A Comprehensive Compendium of Mathematics and 
 -   [1. Graph Theory](#1-graph-theory)
     -   [1A. Trees](#1a-trees)
         -   [1Aa. Binary Trees](#1aa-binary-trees)
+    -   [1B. Depth First Search](#1b-depth-first-search)
+    -   [1C. Path Finding](#1c-path-finding)
 -   [2. Number Theory](#2-number-theory)
     -   [2A. Prime Numbers](#2a-prime-numbers)
     -   [2B. Digit Sums](#2b-digit-sums)
@@ -112,6 +114,60 @@ function maxSum(root) {
     return root.value + Math.max(leftMaxSum, rightMaxSum);
 }
 ```
+
+#### 1B. Depth First Search
+
+DFS is an algorithm for traversing or searching tree or graph data structures. It starts at a selected node (root in the case of a tree) and explores as far as possible along each branch before backtracking. This property allows DFS to be implemented using a simple stack or through recursion. DFS is a versatile algorithm critical for exploring and manipulating complex structures like trees and graphs. Its different traversal orders offer flexibility to address a wide range of problems, from sorting and searching to puzzle solving and network analysis. Its fundamental role in theoretical and applied computer science and mathematics makes it a cornerstone in algorithmic thinking and problem-solving.
+
+##### Common Use Cases
+
+-   **Path Finding:** DFS can be used to find a path between two nodes in a graph.
+-   **Topological Sorting:** In directed graphs, DFS helps to perform topological sorting, which is useful in scheduling tasks, resolving dependencies, etc.
+-   **Detecting Cycle in a Graph:** DFS can detect cycles in a graph, a critical feature in many applications including detecting deadlocks in concurrent systems.
+-   **Solving Puzzles and Mazes:** DFS is ideal for problems where one needs to explore all possible scenarios, like solving mazes, puzzles (like Sudoku), or generating permutations.
+-   **Component Connectivity:** In undirected graphs, DFS can be used to identify connected components.
+-   **Finding Bridges and Articulation Points:** Essential in network connectivity and redundancy analysis.
+
+##### Traversals and Their Uses
+
+-   **Pre-order Traversal:** Visit the node before its children.
+    Used in copying trees, evaluating expressions, and prefix notation (Polish notation) in arithmetic.
+-   **In-order Traversal (Mostly for Binary Trees):** Visit the left child, then the node, and then the right child.
+    Commonly used for sorted traversal of a binary search tree, which can retrieve elements in their natural order.
+-   **Post-order Traversal:** Visit all the children before the node itself.
+    Useful in deleting trees (as children are deleted before the parent), solving postfix notation (Reverse Polish notation), and in dependency resolution scenarios.
+-   **Backtracking:** Integral part of DFS, especially in maze solving, puzzles, or when a path leads to an incorrect solution.
+
+##### Examples
+
+```cpp
+// In order traversal to find the exit of a maze.
+
+// You are at position [0, 0] in maze NxN and you can only move in one of the four cardinal directions (i.e. North, East, South, West). Return true if you can reach position [N-1, N-1] or false otherwise.
+// Empty positions are marked .
+// Walls are marked W
+bool dfs(vector<vector<char>>& maze, int x, int y) {
+    int n = maze.size();
+    if (x < 0 || y < 0 || x >= n || y >= n || maze[x][y] == 'W' || maze[x][y] == 'V')
+        return false;
+
+    if (x == n - 1 && y == n - 1) return true;
+
+    maze[x][y] = 'V'; // Mark as visited
+
+    // Explore all four directions
+    if (dfs(maze, x + 1, y) || dfs(maze, x - 1, y) || dfs(maze, x, y + 1) || dfs(maze, x, y - 1))
+        return true;
+
+    return false;
+}
+```
+
+#### 1C. Path Finding
+
+##### Related
+
+-   **[Depth First Search](#1b-depth-first-search)**
 
 ## 2. Number Theory
 
