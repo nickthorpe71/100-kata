@@ -14,6 +14,9 @@ Welcome to "Algorithmic Insights: A Comprehensive Compendium of Mathematics and 
     -   [2B. Digit Sums](#2b-digit-sums)
     -   [2C. Cryptography](#2c-cryptography)
         -   [2CA. Hash Functions](#2ca-hash-functions)
+-   [3. Combinatorics](#3-combinatorics)
+    -   [3A. Permutations](3a-permutations)
+        -   [3Aa. Heap's Algorithm](3aa-heaps-algorithm)
 
 ## 1. Graph Theory
 
@@ -353,5 +356,191 @@ function sha256(message) {
         (h4 * Math.pow(2, 32) + h5).toString(16) +
         (h6 * Math.pow(2, 32) + h7).toString(16)
     );
+}
+```
+
+## 3. Combinatorics
+
+Combinatorics is a branch of mathematics concerned with counting, arranging, and analyzing discrete structures and finite or countable infinite sets. It's valuable for several reasons and has a wide range of applications in both mathematics and computer science.
+
+##### Why Combinatorics is Valuable
+
+-   **Problem-Solving Skills:** Combinatorics develops critical thinking and problem-solving skills. Many combinatorial problems require creative approaches and the ability to construct and analyze abstract models.
+-   **Foundational for Other Fields:** It provides foundational knowledge and techniques used in various areas of mathematics and science, like probability theory, algebra, and geometry.
+-   **Theoretical Insights:** Combinatorics helps in understanding the properties of discrete structures, which is essential in theoretical research in mathematics and computer science.
+-   **Real-world Applications:** The principles of combinatorics are applicable in real-world scenarios such as network design, optimization problems, and decision-making processes.
+
+##### Uses in Mathematics
+
+-   **Probability Theory:** Combinatorics is essential in probability, especially in calculating the likelihood of complex events. Problems involving permutations and combinations are foundational in determining probabilities.
+-   **Algebra and Number Theory:** Combinatorial concepts are used in understanding the structures within algebra (like groups, rings, and fields) and in solving problems in number theory.
+-   **Geometry:** In geometric combinatorics, the focus is on the combinatorial properties of geometric objects. Tiling, packing problems, and the study of polytopes are examples where combinatorics and geometry intersect.
+-   **Optimization and Operations Research:** Combinatorial optimization involves finding an optimal object from a finite set of objects. Problems like the traveling salesman and the shortest path problem are classical examples.
+
+##### Uses in Computer Science
+
+-   **Algorithm Design:** Combinatorics is crucial in designing and analyzing algorithms, especially those involving sorting, searching, and optimization.
+-   **Data Structures:** Understanding combinatorial properties is important in the efficient organization and manipulation of data structures like graphs, trees, and databases.
+-   **Cryptography:** Cryptographic algorithms, especially those based on public-key systems, often rely on combinatorial problems that are computationally hard to solve, like factoring large integers or computing discrete logarithms.
+-   **Network Theory:** Combinatorial principles are applied in network theory for analyzing and designing networks, including internet topology, social networks, and biological networks.
+-   **Game Theory and Decision Sciences:** In game theory, combinatorial models are used to study and predict rational decision-making in competitive environments.
+-   **Artificial Intelligence and Machine Learning:** Combinatorial methods are used in various aspects of AI and ML, including algorithmic problem solving, pattern recognition, and learning theory.
+
+### 3A. Permutations
+
+Permutations are arrangements of a set of items or elements in a specific order. In mathematics, a permutation of a set is a rearrangement of its members into a sequence or linear order. For a set with _n_ distinct elements, a permutation is any of the _n!_ (n factorial) possible ways of ordering these elements. For example, the permutations of the set {1, 2, 3} are {1, 2, 3}, {1, 3, 2}, {2, 1, 3}, {2, 3, 1}, {3, 1, 2}, and {3, 2, 1}.
+
+-   **Order and Arrangement:** Permutations help understand and analyze the arrangement of elements where order matters. This is important in various fields, from probability theory to optimization problems.
+-   **Mathematical Foundation:** Permutations are fundamental in combinatorics and play a key role in probability, algebra, and number theory, aiding in problem-solving and theoretical analysis.
+
+##### Applications in Computer Science
+
+-   **Algorithm Design:** Essential for algorithms, especially in sorting and searching.
+-   **Cryptography:** Used in data encryption to rearrange data securely.
+-   **Data Analysis:** Important in statistical methods and machine learning for simulations and model evaluations.
+-   **Real-World Modeling:** Permutations model real-world scenarios like scheduling, planning, and resource allocation, making them vital in operational research, logistics, and beyond.
+
+##### Implementation
+
+-   **Base Case:** If the array is empty or contains only one element, the permutation is the array itself.
+-   **Recursive Case:** For an array with more than one element, iterate through the array, and for each element:
+    Treat that element as the first in the permutation and recursively find permutations of the remaining elements.
+    Append the first element to each of these permutations.
+    Add these complete permutations to the list of all permutations.
+
+##### Time Complexity
+
+The time complexity of this algorithm is O(n!), where n is the number of elements in the array. This is because:
+
+-   There are n choices for the first element,
+-   For each of those, there are n-1 choices for the second element,
+-   And so on, until there's only 1 choice for the last element.
+-   Thus, the number of permutations is n _ (n-1) _ (n-2) _ ... _ 1, which is n!.
+
+##### Space Complexity
+
+The space complexity is also O(n!), as we need to store each of these permutations. Additionally, there's the space used by the call stack due to recursion, which in the worst case goes O(n) deep, but since n! grows faster than n, the dominating factor is O(n!).
+
+##### Examples
+
+```js
+function getPermutations(array) {
+    const result = [];
+
+    function permute(arr, m = []) {
+        if (arr.length === 0) {
+            result.push(m);
+        } else {
+            for (let i = 0; i < arr.length; i++) {
+                let curr = arr.slice();
+                let next = curr.splice(i, 1);
+                permute(curr.slice(), m.concat(next));
+            }
+        }
+    }
+
+    permute(array);
+
+    return result;
+}
+```
+
+#### 3Aa. Heap's Algorithm
+
+Heap's Algorithm is an efficient method to generate all possible permutations of a given sequence. It was proposed by B.R. Heap in 1963. Unlike the recursive approach, Heap's algorithm reduces overhead and is generally faster. It uses a specific method of swapping elements to produce permutations, making it more efficient in terms of space complexity as well.
+
+##### How Heap's Algorithm Works
+
+Heap's algorithm generates all possible permutations of n objects by swapping elements. The basic idea is to generate each permutation by making only one swap at a time.
+
+-   Here's a step-by-step breakdown of Heap's Algorithm for an array of size n:
+
+-   **1. Initialization:** Start with an index array k of size n, where all elements are set to 0.
+
+-   **2. Generate Permutation:**
+
+    -   Print the current permutation.
+    -   Find the largest index i such that k[i] < i. If no such index exists, the algorithm terminates.
+    -   If i is even, swap the first and i-th elements. If i is odd, swap the k[i]-th and i-th elements.
+    -   Increment k[i] by 1.
+    -   Reset all k[j] for j > i to 0.
+
+-   **3. Repeat Step 2** until all permutations are generated.
+
+##### Example
+
+Let's consider an array [A, B, C]. Heap's algorithm would generate the permutations in the following order:
+
+-   ABC (initial state)
+-   BAC (swap A and B)
+-   CAB (swap B and C)
+-   ACB (swap A and C)
+-   BCA (swap A and B)
+-   CBA (swap A and C)
+
+```js
+// Standard //
+function swap(array, pos1, pos2) {
+    const temp = array[pos1];
+    array[pos1] = array[pos2];
+    array[pos2] = temp;
+}
+
+function generate(n, array, output) {
+    if (n === 1) {
+        output.push([...array]);
+        return;
+    }
+
+    generate(n - 1, array, output);
+
+    for (let i = 0; i < n - 1; i++) {
+        if (n % 2 === 0) {
+            swap(array, i, n - 1);
+        } else {
+            swap(array, 0, n - 1);
+        }
+        generate(n - 1, array, output);
+    }
+}
+
+function heapsAlgorithm(array) {
+    const output = [];
+    generate(array.length, array, output);
+    return output;
+}
+
+// Example usage
+const array = [2, 3, 11, 4, 12];
+const permutations = heapsAlgorithm(array);
+console.log(permutations);
+```
+
+```js
+// With a generator function //
+function* generate(n, array) {
+    if (n === 1) {
+        yield array.slice(); // Return a copy of the array
+        return;
+    }
+
+    for (let i = 0; i < n; i++) {
+        yield* generate(n - 1, array);
+
+        const j = n % 2 === 0 ? i : 0;
+        [array[j], array[n - 1]] = [array[n - 1], array[j]];
+    }
+}
+
+function* heapsAlgorithm(array) {
+    yield* generate(array.length, array);
+}
+
+// Example usage
+const array = [2, 3, 11, 4, 12];
+const generator = heapsAlgorithm(array);
+
+for (let permutation of generator) {
+    console.log(permutation);
 }
 ```
