@@ -15,8 +15,9 @@ Welcome to "Algorithmic Insights: A Comprehensive Compendium of Mathematics and 
     -   [2C. Cryptography](#2c-cryptography)
         -   [2CA. Hash Functions](#2ca-hash-functions)
 -   [3. Combinatorics](#3-combinatorics)
-    -   [3A. Permutations](3a-permutations)
-        -   [3Aa. Heap's Algorithm](3aa-heaps-algorithm)
+    -   [3A. Permutations](#3a-permutations)
+        -   [3Aa. Heap's Algorithm](#3aa-heaps-algorithm)
+-   [4. Hybrid Discipline](#4-hybrid-discipline)
 
 ## 1. Graph Theory
 
@@ -543,4 +544,163 @@ const generator = heapsAlgorithm(array);
 for (let permutation of generator) {
     console.log(permutation);
 }
+```
+
+## 4. Hybrid Discipline
+
+_While creating this document I've realized that there are many concepts that fit under multiple mathematical/computer science categories. It seems that the fields would be better represented as a graph than a hierarchical structure. For now I will list insights in this category that are too evenly divided across multiple categories._
+
+### 4A. Backtracking
+
+**Related**
+
+-   [Graph Theory](#1-graph-theory)
+-   [Combinatorics](#3-combinatorics)
+
+Backtracking is a general algorithmic technique used for finding solutions to problems incrementally, by trying to build a solution step-by-step and abandoning each partial solution ("backtracking") as soon as it determines that this partial solution cannot possibly lead to a complete solution. It is powerful technique in algorithm design, especially useful in solving combinatorial problems, puzzles, and constraint satisfaction problems.
+
+##### Key Concepts of Backtracking
+
+1. **Recursive Solution Space Exploration**:
+
+    - Backtracking algorithms typically use recursion to explore the solution space.
+    - Each recursive call represents a choice out of a set of possibilities.
+    - The algorithm explores these possibilities depth-first.
+
+2. **Pruning the Search Tree**:
+
+    - If the algorithm determines that the current path cannot lead to a valid solution, it stops exploring that path further. This is known as pruning.
+    - Pruning helps in avoiding unnecessary computations and reduces the search space, making the algorithm more efficient.
+
+3. **Building and Undoing Decisions**:
+    - As the algorithm progresses, decisions are made to build a potential solution.
+    - If a decision leads to an invalid state or a dead end, the algorithm undoes the last decision (backtracks) and tries the next available option.
+
+##### When to Use Backtracking
+
+1. **Problem Decomposition**:
+
+    - Suitable for problems that can be broken down into smaller, similar subproblems.
+    - Typically used when a problem requires a sequence of decisions, where each decision leads to a new problem that's a smaller version of the original.
+
+2. **Exploring Combinations and Permutations**:
+
+    - Ideal for scenarios where you need to explore all possible combinations or permutations of a set (e.g., generating all possible subsets, arranging objects in a certain order).
+
+3. **Constraint Satisfaction Problems (CSP)**:
+    - Frequently used in CSPs, where the goal is to find a solution that satisfies a set of constraints (e.g., Sudoku, crossword puzzles, N-Queens problem).
+
+##### How to Implement Backtracking
+
+1. **Base Case**:
+
+    - Determine the base case that defines when a solution is complete and should be added to the result or returned.
+
+2. **Choices and Constraints**:
+
+    - Identify the choices available at each step and the constraints that must be satisfied.
+    - Make a choice and proceed to the next step.
+
+3. **Recursive Exploration**:
+
+    - Use recursion to explore each choice.
+    - After exploring one choice, use backtracking to undo the last choice and try the next option.
+
+4. **Pruning Invalid Paths**:
+
+    - Add checks to prune the search tree – if you reach a state that can't lead to a solution, return early.
+
+5. **Collecting Results**:
+    - Keep track of the current state or path.
+    - When a valid solution is found, add it to the result set or return it.
+
+##### General Tips
+
+-   **Choose Data Structures Wisely**: Depending on the problem, using appropriate data structures (like arrays, stacks, or matrices) can simplify the backtracking process.
+-   **Optimize Pruning**: The more effectively you prune the search tree, the faster your backtracking algorithm will be. Look for any opportunity to cut off paths that can't lead to a solution.
+-   **Consider Time Complexity**: Backtracking can still be inefficient for some problems due to its potentially exponential time complexity. Always analyze the time complexity and consider alternatives or optimizations where necessary.
+
+##### Examples
+
+```js
+function solveSudoku(board) {
+    // This is a really interesting and efficient way to check
+    // the row, col, and local grid all in the same loop. Generating
+    // all the coordinates for the local grid is a useful tool.
+    function isValid(board, row, col, num) {
+        for (let x = 0; x < 9; x++) {
+            // Check row
+            if (board[row][x] === num) {
+                return false;
+            }
+
+            // Check column
+            if (board[x][col] === num) {
+                return false;
+            }
+
+            // Check 3x3 grid
+            if (
+                board[3 * Math.floor(row / 3) + Math.floor(x / 3)][
+                    3 * Math.floor(col / 3) + (x % 3)
+                ] === num
+            ) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function backtrack(board, row, col) {
+        // Check if we have filled all rows, Sudoku solved
+        if (row === 9) {
+            return true;
+        }
+
+        // Move to the next row
+        if (col === 9) {
+            return backtrack(board, row + 1, 0);
+        }
+
+        // Skip filled cells
+        if (board[row][col] !== 0) {
+            return backtrack(board, row, col + 1);
+        }
+
+        for (let num = 1; num <= 9; num++) {
+            if (isValid(board, row, col, num)) {
+                board[row][col] = num;
+
+                // Recursively proceed to place numbers
+                if (backtrack(board, row, col + 1)) {
+                    return true;
+                }
+
+                // Undo the current cell for backtracking
+                board[row][col] = 0;
+            }
+        }
+
+        return false;
+    }
+
+    backtrack(board, 0, 0);
+    return board;
+}
+
+// Example usage
+let sudokuBoard = [
+    [5, 3, 0, 0, 7, 0, 0, 0, 0],
+    [6, 0, 0, 1, 9, 5, 0, 0, 0],
+    [0, 9, 8, 0, 0, 0, 0, 6, 0],
+    [8, 0, 0, 0, 6, 0, 0, 0, 3],
+    [4, 0, 0, 8, 0, 3, 0, 0, 1],
+    [7, 0, 0, 0, 2, 0, 0, 0, 6],
+    [0, 6, 0, 0, 0, 0, 2, 8, 0],
+    [0, 0, 0, 4, 1, 9, 0, 0, 5],
+    [0, 0, 0, 0, 8, 0, 0, 7, 9],
+];
+
+console.log("Solved Sudoku:");
+console.log(solveSudoku(sudokuBoard));
 ```
