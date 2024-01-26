@@ -18,6 +18,9 @@ Welcome to "Algorithmic Insights: A Comprehensive Compendium of Mathematics and 
     -   [3A. Permutations](#3a-permutations)
         -   [3Aa. Heap's Algorithm](#3aa-heaps-algorithm)
 -   [4. Hybrid Discipline](#4-hybrid-discipline)
+    -   [4A. Backtracking](#4a-backtracking)
+-   [5. Data Structures](#5-data-structures)
+    -   [5A. Stack](#5a-stack)
 
 ## 1. Graph Theory
 
@@ -121,6 +124,10 @@ function maxSum(root) {
 
 #### 1B. Depth First Search
 
+**Related**
+
+-   [Stack](#5a-stack)
+
 DFS is an algorithm for traversing or searching tree or graph data structures. It starts at a selected node (root in the case of a tree) and explores as far as possible along each branch before backtracking. This property allows DFS to be implemented using a simple stack or through recursion. DFS is a versatile algorithm critical for exploring and manipulating complex structures like trees and graphs. Its different traversal orders offer flexibility to address a wide range of problems, from sorting and searching to puzzle solving and network analysis. Its fundamental role in theoretical and applied computer science and mathematics makes it a cornerstone in algorithmic thinking and problem-solving.
 
 ##### Common Use Cases
@@ -169,7 +176,7 @@ bool dfs(vector<vector<char>>& maze, int x, int y) {
 
 #### 1C. Path Finding
 
-##### Related
+**Related**
 
 -   **[Depth First Search](#1b-depth-first-search)**
 
@@ -703,4 +710,98 @@ let sudokuBoard = [
 
 console.log("Solved Sudoku:");
 console.log(solveSudoku(sudokuBoard));
+```
+
+## Data Structures
+
+This section is used to store descriptions and insights to data structures that span multiple categories. Data structures are a fundamental concept in computer science and programming, used to store and organize data in a way that facilitates efficient access and modification.
+
+### Stack
+
+Stacks are a fundamental data structure in computer science and have a wide range of applications due to their simple yet powerful structure. Their LIFO nature makes them ideal for various algorithmic problems, particularly those requiring reversal, [backtracking](#4a-backtracking), or sequential processing.
+
+A stack is a linear data structure that follows the Last In, First Out (LIFO) principle. The last item to be added to the stack is the first one to be removed.
+
+##### Basic Operations
+
+-   **Push:** Add an item to the top of the stack.
+-   **Pop:** Remove the top item from the stack.
+-   **Peek or Top:** View the top item without removing it.
+-   **IsEmpty:** Check if the stack is empty.
+
+##### Efficiency
+
+-   **Time Complexity**: Basic operations (`push`, `pop`, `peek`) have O(1) time complexity.
+-   **Space Complexity**: O(n), where n is the number of items.
+
+##### When to Use Stacks in Algorithm Design
+
+-   **Last-In, First-Out Situations**: Ideal when the last added element needs to be the first processed or removed.
+-   **[Backtracking Algorithms](#4a-backtracking)**: Useful for algorithms requiring backtracking, like maze solving or syntax parsing.
+-   **Function Calls and Recursion**: Used in call stacks for tracking function calls and recursion.
+-   **[Depth-First Search (DFS)](#1b-depth-first-search)**: Stacks are used in DFS implementations in graph theory.
+
+##### Common Use Cases
+
+-   **Expression Evaluation and Syntax Parsing**: Employed in compilers and interpreters for evaluating expressions and parsing languages.
+-   **Undo Mechanisms**: Implement undo functionality in applications like text editors.
+-   **String Reversal**: Push characters onto a stack and then pop them for reversal.
+-   **Balancing Symbols**: Check for balanced parentheses and brackets in code editors or syntax checkers.
+
+##### Relation to Mathematics and Theory
+
+-   **Discrete Mathematics**: A key topic in discrete mathematics, especially in sequences and recursion.
+-   **Automata Theory**: Basis for pushdown automata in the study of context-free languages.
+-   **Algorithm Complexity Analysis**: Involves understanding their time and space complexity.
+
+##### Implementation
+
+-   **Array or Linked List**: Implemented using arrays or linked lists, impacting memory usage and performance.
+
+##### Best Practices
+
+-   **Avoiding Stack Overflow**: Ensure the stack does not exceed its capacity to prevent overflow.
+-   **Memory Management**: In languages like C/C++, manage memory allocation and deallocation to prevent leaks.
+
+##### Examples
+
+```cpp
+class Stack {
+private:
+    static const int max = 10;  // Maximum size of the Stack
+    int arr[max];
+    int top;
+
+public:
+    Stack() { top = -1; }
+
+    bool isEmpty() {
+        return (top == -1);
+    }
+
+    bool isFull() {
+        return (top == max - 1);
+    }
+
+    void push(int x) {
+        if (isFull()) {
+            throw std::overflow_error("Overflow: Stack is full");
+        }
+        arr[++top] = x;
+    }
+
+    int pop() {
+        if (isEmpty()) {
+            throw std::underflow_error("Underflow: Stack is empty");
+        }
+        return arr[top--];
+    }
+
+    int peek() {
+        if (isEmpty()) {
+            throw std::underflow_error("Underflow: Stack is empty");
+        }
+        return arr[top];
+    }
+};
 ```
