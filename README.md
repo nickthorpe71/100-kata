@@ -21,6 +21,9 @@ Welcome to "Algorithmic Insights: A Comprehensive Compendium of Mathematics and 
     -   [4A. Backtracking](#4a-backtracking)
 -   [5. Data Structures](#5-data-structures)
     -   [5A. Stack](#5a-stack)
+-   [6. Set Theory](#6-set-theory)
+-   [7. Computational Geometry](#7-computational-geometry)
+    -   [7A. Line Sweep Algorithm](#7a-line-sweep-algorithm)
 
 ## 1. Graph Theory
 
@@ -712,11 +715,11 @@ console.log("Solved Sudoku:");
 console.log(solveSudoku(sudokuBoard));
 ```
 
-## Data Structures
+## 5. Data Structures
 
 This section is used to store descriptions and insights to data structures that span multiple categories. Data structures are a fundamental concept in computer science and programming, used to store and organize data in a way that facilitates efficient access and modification.
 
-### Stack
+### 5A. Stack
 
 Stacks are a fundamental data structure in computer science and have a wide range of applications due to their simple yet powerful structure. Their LIFO nature makes them ideal for various algorithmic problems, particularly those requiring reversal, [backtracking](#4a-backtracking), or sequential processing.
 
@@ -804,4 +807,114 @@ public:
         return arr[top];
     }
 };
+```
+
+## 6. Set Theory
+
+Set theory is a fundamental branch of mathematics, dealing with the study of sets, which are collections of objects. It's not only a core concept in mathematics but also plays a critical role in various aspects of computer science. Many algorithms, especially those related to [graph theory](#1-graph-theory), rely on set operations like union, intersection, and difference. Set theory provides a foundational framework for almost all areas of modern mathematics. It offers a basic language and structure used to define concepts like numbers, relations, functions, and more.
+
+##### Applications in Computer Science:
+
+1. **Data Structure Implementation**: Sets are directly used to implement various data structures in programming languages, particularly those that require elements to be unique, such as hash tables and trees.
+
+2. **Algorithm Design**: Many algorithms, especially those related to graph theory, rely on set operations like union, intersection, and difference.
+
+3. **Database Theory**: Set theory is fundamental in database systems, where data are often represented as sets, and operations are performed on these sets.
+
+4. **Logic and Computation Theory**: Set theory is closely tied to logic, forming the basis of computational theory, and is essential in the study of algorithms and their complexities.
+
+##### Solving Problems:
+
+1. **Problem Modeling**: Set theory provides a way to model and formalize problems in various fields. For example, in probability theory, events can be represented as sets, and their probabilities can be studied using set operations.
+
+2. **Designing Efficient Solutions**: It helps in designing more efficient solutions to computational problems. For instance, understanding set operations can lead to faster algorithms for handling large datasets.
+
+3. **Formalizing Abstract Concepts**: Set theory allows for the formalization of abstract concepts in computer science, such as states in automata theory, or objects in object-oriented programming.
+
+4. **Solving Real-world Problems**: In practical applications, set theory is used to handle and manipulate data collections, like in search engine algorithms, data mining, and network theory.
+
+##### Challenges and Criticisms:
+
+-   **Paradoxes and Limitations**: Set theory has its own paradoxes (like Russell's paradox), which have led to the development of various axiomatic systems to address these issues.
+-   **Abstract Nature**: Its abstract nature sometimes makes it less intuitive for practical problem-solving without significant mathematical background.
+
+##### Set Operations and Why They Are Useful
+
+1. **Union (A ∪ B)**: This operation combines all the elements from sets A and B. It's useful for merging two datasets, finding the total range of values in multiple collections, and for probabilistic calculations in events that can occur in either of two scenarios.
+
+2. **Intersection (A ∩ B)**: This finds common elements between sets A and B. It's crucial for identifying shared characteristics or data points, such as common friends in social networks, shared customers between businesses, or common elements in different datasets.
+
+3. **Difference (A - B)**: This operation yields elements in set A that are not in set B. It's useful for filtering out specific data, like removing known items from a list of potential candidates, or identifying unique features in comparative studies.
+
+4. **Symmetric Difference (A Δ B)**: This results in elements in either A or B, but not in both. It's valuable for finding discrepancies or exclusive elements between sets, like differing opinions in polls or unique features in product comparisons.
+
+5. **Complement (A')**: The complement of a set A contains everything not in A, usually within the context of a universal set. This is important for problem-solving, where focusing on what is not included can provide insights, like identifying non-affected areas in a study.
+
+6. **Subset (A ⊆ B)**: Set A is a subset of set B if all elements of A are also elements of B. This concept is fundamental in categorization, hierarchy, and inclusion relationships, like classifying species in biology or subsets of customers in marketing.
+
+7. **Superset (A ⊇ B)**: Set A is a superset of set B if A contains every element of B. This is the reverse of the subset operation and is similarly useful in understanding hierarchical and inclusion relationships.
+
+8. **Power Set**: The power set of any set A is the set of all possible subsets of A. This is key in fields like combinatorics, probability theory, and for exploring all potential combinations in scenarios like product bundles or meal plans.
+
+9. **Cartesian Product (A × B)**: This operation produces a set of ordered pairs, with each pair consisting of one element from A and one from B. It's vital in creating relational data models, like database tables, and for understanding possible interactions or combinations in mathematics and science.
+
+## 7. Computational Geometry
+
+Computational Geometry is a field of computer science and mathematics that deals with the study of algorithms which can be stated in terms of geometry.
+
+### 7A. Line Sweep Algorithm
+
+The central idea is to imagine a line (often vertical) that "sweeps" across the plane, stopping at certain "event points" which are typically key points of the geometric objects involved (e.g., endpoints of line segments, corners of rectangles). These event points are sorted and processed sequentially, usually based on their x-coordinates when a vertical line is used. The algorithm maintains a "state" reflecting the current situation along the sweep line. This state changes as the sweep line encounters new event points. As each event point is processed, the algorithm updates its state and performs necessary calculations based on the type of problem being solved.
+
+##### Why It's Useful:
+
+1. **Efficiency**: Can solve complex geometric problems efficiently, often reducing time complexity significantly compared to brute-force approaches.
+2. **Simplicity**: Transforms a multi-dimensional problem into a more manageable one-dimensional problem.
+3. **Flexibility**: Applicable to a wide range of problems, from finding intersections to calculating areas.
+
+##### Examples:
+
+1. **Finding Intersections**: In line segment intersection problems, the algorithm efficiently finds all intersections among a set of line segments.
+2. **Closest Pair of Points**: Determines the closest pair of points among a set of points in the plane.
+3. **Rectangular Area Union**: Calculates the total area covered by multiple overlapping rectangles.
+
+##### Examples
+
+```js
+// This is a simplified line sweep algorithm. It processes rectangles based on their x-coordinates and calculates the area.
+
+function calculateTotalArea(rectangles) {
+    // Sort rectangles by their x-coordinate
+    rectangles.sort((a, b) => a[0] - b[0]);
+
+    let totalArea = 0;
+    let activeRectangles = [];
+
+    // Process each rectangle
+    rectangles.forEach((rect) => {
+        // Update active rectangles
+        // This is a simplified way to handle it, more complex logic needed for actual overlaps
+        activeRectangles = activeRectangles.filter((r) => r[2] > rect[0]);
+        activeRectangles.push(rect);
+
+        // Calculate the vertical coverage at this point
+        let coverage = calculateVerticalCoverage(activeRectangles);
+        totalArea += coverage * (nextRectX - currentRectX);
+    });
+
+    return totalArea;
+}
+
+function calculateVerticalCoverage(rectangles) {
+    // Sort by y-coordinate and calculate vertical coverage
+    // This is an area where the actual line sweep logic would be more complex
+    // ...
+}
+
+// Example usage
+const rectangles = [
+    [0, 0, 2, 2],
+    [1, 1, 3, 3],
+];
+console.log(calculateTotalArea(rectangles));
 ```
