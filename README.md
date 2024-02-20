@@ -9,6 +9,7 @@ Welcome to "Algorithmic Insights: A Comprehensive Compendium of Mathematics and 
         -   [1Aa. Binary Trees](#1aa-binary-trees)
     -   [1B. Depth First Search](#1b-depth-first-search)
     -   [1C. Path Finding](#1c-path-finding)
+    -   [1D. Linked List](#1d-linked-list)
 -   [2. Number Theory](#2-number-theory)
     -   [2A. Prime Numbers](#2a-prime-numbers)
     -   [2B. Digit Sums](#2b-digit-sums)
@@ -182,6 +183,24 @@ bool dfs(vector<vector<char>>& maze, int x, int y) {
 **Related**
 
 -   **[Depth First Search](#1b-depth-first-search)**
+
+#### 1D. Linked List
+
+A linked list is a fundamental data structure used to organize items sequentially, with each item containing a link to the next one in the sequence. This structure allows for efficient insertion and deletion of elements since these operations do not require the elements to be contiguous in memory, unlike arrays.
+
+##### Key Characteristics:
+
+-   **Dynamic Size**: Unlike arrays, linked lists can grow or shrink in size dynamically, which makes them more flexible for certain applications where the number of elements can change over time.
+-   **Efficient Insertions/Deletions**: Adding or removing elements from a linked list is generally more efficient than doing so with an array, especially for operations at the beginning or in the middle of the list.
+-   **Sequential Access**: Elements in a linked list must be accessed sequentially starting from the first element. This can be less efficient than direct access with arrays for some operations.
+
+##### Uses of Linked Lists:
+
+Linked lists are particularly useful in situations where:
+
+-   The total number of elements is unknown in advance and can change over time.
+-   Frequent insertion and deletion operations are required, particularly if these operations can occur at various points within the list.
+-   Memory efficiency is a concern, as linked lists can minimize wasted space by allocating only as much memory as is needed for the current number of elements.
 
 ## 2. Number Theory
 
@@ -759,7 +778,7 @@ A stack is a linear data structure that follows the Last In, First Out (LIFO) pr
 
 ##### Implementation
 
--   **Array or Linked List**: Implemented using arrays or linked lists, impacting memory usage and performance.
+-   **Array or [Linked List](#1d-linked-list)**: Implemented using arrays or linked lists, impacting memory usage and performance.
 
 ##### Best Practices
 
