@@ -10,6 +10,7 @@ Welcome to "Algorithmic Insights: A Comprehensive Compendium of Mathematics and 
     -   [1B. Depth First Search](#1b-depth-first-search)
     -   [1C. Path Finding](#1c-path-finding)
     -   [1D. Linked List](#1d-linked-list)
+    -   [1E. Breadth First Search](#1e-breadth-first-search)
 -   [2. Number Theory](#2-number-theory)
     -   [2A. Prime Numbers](#2a-prime-numbers)
     -   [2B. Digit Sums](#2b-digit-sums)
@@ -201,6 +202,46 @@ Linked lists are particularly useful in situations where:
 -   The total number of elements is unknown in advance and can change over time.
 -   Frequent insertion and deletion operations are required, particularly if these operations can occur at various points within the list.
 -   Memory efficiency is a concern, as linked lists can minimize wasted space by allocating only as much memory as is needed for the current number of elements.
+
+### 1E. Breadth First Search
+
+**Related**
+
+-   [Queue](#5b-queue)
+
+BFS is tree/graph traversal algorithm. It starts by searching a node, then all of that node's children (or neighbors). In a tree this allows you to search each layer in order from the root down. This ensures that all nodes on the curent later are visited before moving to the next layer.  
+
+##### Common Use Cases
+
+- **Shortest Path in Unweighted Graphs**:  
+  BFS is used to find the shortest path in unweighted graphs, exploring nodes level by level.
+
+- **Level Order Traversal of Trees**:  
+  Ideal for level order traversal in trees, visiting nodes from top to bottom.
+
+- **Cycle Detection in Undirected Graphs**:  
+  Useful for detecting cycles in an undirected graph by checking for previously visited nodes.
+
+- **Connectivity Check**:  
+  Determines if all nodes in a graph are reachable from a starting node, verifying connectivity.
+
+- **Finding All Nodes Within One Connected Component**:  
+  Traverses and lists all nodes within a single connected component, applicable in analyses like those of social networks.
+
+- **Broadcasting in Networks**:  
+  Employed in network protocols to ensure packets reach all network nodes efficiently.
+
+- **Finding Bipartiteness of a Graph**:  
+  Checks if a graph is bipartite by using two colors to color the graph during traversal.
+
+- **Path Finding in Games or Puzzles**:  
+  Used to find paths in games, mazes, or strategic navigation scenarios within an unweighted map.
+
+- **Web Crawling**:  
+  Utilized in web crawlers of search engines to systematically explore web pages and build a web index.
+
+- **Social Networking Features**:  
+  In social networks, BFS can determine people within a certain "degree of separation" from a user, like LinkedIn’s connection features.
 
 ## 2. Number Theory
 
@@ -827,6 +868,42 @@ public:
     }
 };
 ```
+
+### 5b. Queue 
+
+Queues are a data structure that follow the First In, First Out (FIFO) principle. 
+
+##### Basic Operations
+
+-   **Enqueue:** Adds an item to the back of the queue.
+-   **Dequeue:** Removes an item from the front of the queue.
+-   **Peek:** Checks the first item in the queue.
+-   **IsEmpty:** Checks if the queue is empty.
+
+##### Efficiency
+
+-   **Time Complexity**: Basic operations (`enqueue`, `dequeue`, `peek`, `isEmpty`) have O(1) time complexity.
+-   **Space Complexity**: O(n), where n is the number of items.
+
+##### When to Use Stacks in Algorithm Design
+
+-   **[Breradth-First Search (BFS)](#1e-breadth-first-search)**: Queues are used in BFS implementations in graph theory.
+
+##### Common Use Cases
+
+-   **Job Scheduling**: Queues are used in operating systems to manage processes that need to be executed by the CPU.
+-   **Inter-process Communication**: A message queue can be used to keep order and control over multiple async processess that need to communicate.
+
+##### Relation to Mathematics and Theory
+
+-   **Queueing Theory**: Fundamental in operations research and applied probability for analyzing queueing systems, predicting behavior, and optimizing service policies.
+-   **Algorithm Design**: Essential for breadth-first search (BFS) and level-order traversal in trees or graphs, ensuring correct and efficient processing.
+-   **Complexity Theory**: Utilized in analyzing computational models like Turing machines and automata, exploring their computational power and limitations.
+-   **Concurrency and Parallel Computing**: Crucial in managing synchronization and resource sharing in multiple processes or threads within computing systems.
+-   **Network Theory**: Applied in modeling network routers and switches to optimize network throughput and reduce latency and packet loss.
+-   **Simulation**: Used to model and simulate real-world systems like industrial operations and telecommunications to enhance efficiency.
+-   **Performance Analysis**: Involved in evaluating the performance of systems such as databases and operating systems, focusing on task processing.
+-   **Resource Management**: Employed in managing resources in critical services like hospitals, ensuring orderly and efficient task handling.
 
 ## 6. Set Theory
 
