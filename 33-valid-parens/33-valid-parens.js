@@ -3,6 +3,7 @@
  * have only matching sets of parentheses.
  * @param {string} str 
  * @returns {string}
+ * @complexity Time: O(n) | Space: O(n)
  */
 function makeValid(str) {
     const open = [];
@@ -19,18 +20,15 @@ function makeValid(str) {
         }
     }
 
-    const indicesToRemove = [...open, ...close];
-    const res = new Array(str.length - indicesToRemove.length);
-    let j = 0; // remove group index
-    let ri = 0; // result index
+    const indicesToRemove = new Set([...open, ...close]);
+    const res = [];
+
     for (let i = 0; i < str.length; i++) {
-        if (i !== indicesToRemove[j]) {
-            res[ri] = str[i];
-            ri++;
-        } else {
-            j++;
+        if (!indicesToRemove.has(i)) {
+            res.push(str[i]);
         }
     }
+
     return res.join("");
 }
 
