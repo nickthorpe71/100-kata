@@ -6,23 +6,27 @@
  * @complexity Time: O(n) | Space: O(n)
  */
 function makeValid(str) {
-    const open = [];
-    const close = [];
+    const stack = [];
+    const indicesToRemove = new Set();
 
     for (let i = 0; i < str.length; i++) {
         const c = str[i];
         if (c === "(") {
-            open.push(i);
-        } else if (c === ")" && open.length > 0) {
-            open.pop();
+            stack.push(i);
         } else if (c === ")") {
-            close.push(i);
+            if (stack.length > 0) {
+                stack.pop();
+            } else {
+                indicesToRemove.add(i);
+            }
         }
     }
 
-    const indicesToRemove = new Set([...open, ...close]);
-    const res = [];
+    while (stack.length > 0) {
+        indicesToRemove.add(stack.pop());
+    }
 
+    const res = [];
     for (let i = 0; i < str.length; i++) {
         if (!indicesToRemove.has(i)) {
             res.push(str[i]);
