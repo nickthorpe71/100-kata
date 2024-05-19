@@ -3,7 +3,7 @@
  * have only matching sets of parentheses.
  * @param {string} str 
  * @returns {string}
- * @complexity Time: O(n) | Space: O(n)
+ * @complexity Time: O(n) | Space: O(n) where `n` is the length of str
  */
 function makeValid(str) {
     const stack = [];
