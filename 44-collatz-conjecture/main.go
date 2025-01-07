@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// More efficient for computing just the count
 func CollatzSimple(n int) int {
 	count := 1
 	for n != 1 {
