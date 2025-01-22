@@ -35,6 +35,16 @@ fn decode_morse(morse_code: &str) -> String {
     decoded_words.join(" ")
 }
 
+fn decode_morse_clean(encoded: &str) -> String {
+    encoded
+    .split(' ')
+    .map(|x| { MORSE_CODE.get(x).unwrap_or(&" ".to_string()).clone() })
+    .collect::<String>()
+    .split_whitespace()
+    .collect::<Vec<_>>()
+    .join(" ")
+}
+
 fn main() {
     let morse = ".... . -.--   .--- ..- -.. .";
     let decoded = decode_morse(morse);
