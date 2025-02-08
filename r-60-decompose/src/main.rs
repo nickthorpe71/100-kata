@@ -70,31 +70,38 @@ fn partition_c(sqrt: i64, n: i64, result: &mut [i64; 100], index: usize) -> Opti
 
 fn decompose_d(n: i64) -> Option<Vec<i64>> {
     let target = n * n;
-    let mut stack: Vec<(i64, i64, Vec<i64>)> = vec![(target, n, Vec::new())];
+    let mut stack: Vec<(i64, i64, usize)> = vec![(target, n, 0)];
+    let mut result = [0; 100];  // Pre-allocated array for results
 
-    while let Some((remaining, max, mut path)) = stack.pop() {
+    while let Some((remaining, max, index)) = stack.pop() {
+        // Check if we have found a valid solution
         if remaining == 0 {
-            path.reverse();
-            return Some(path);  // Found a valid decomposition
+            return Some(result[..index].iter().copied().rev().collect());
         }
 
-        // Try all candidates from max - 1 down to 1
-        for i in (1..max).rev() {
+        // Iterate from the largest candidate to smaller ones, pruning paths early
+        let mut i = max - 1;
+        while i > 0 {
             let square = i * i;
             if square <= remaining {
-                let mut new_path = path.clone();
-                new_path.push(i);
-                stack.push((remaining - square, i, new_path));
+                result[index] = i;  // Add candidate to result array
+                stack.push((remaining - square, i, index + 1));  // Push new state to stack
             }
+
+            // Early pruning: if current square exceeds half the remaining sum, skip further checks
+            if square > remaining / 2 {
+                break;
+            }
+
+            i -= 1;
         }
     }
 
     None  // No valid solution found
 }
 
-
 fn main() {
-    let n = 1992105479;  // Large value for benchmarking
+    let n = 1992105;  // Large value for benchmarking
 
     // Benchmark for decompose (Version A)
     let start = Instant::now();
