@@ -1,0 +1,10 @@
+[package]
+name = "r-63-para-nums"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+crossterm = "0.27"  # For terminal manipulation
+image = "0.24"  # For image processing
+clap = "3.1"  # For command line argument parsing
+rand = "0.8"  # For random number generation
