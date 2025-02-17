@@ -89,9 +89,9 @@ int main()
     int n = sizeof(points) / sizeof(points[0]);
     Point p1, p2;
 
-    clock_t start = get_nanoseconds();
+    long start = get_nanoseconds();
     closest_pair(points, n, &p1, &p2);
-    clock_t end = get_nanoseconds();
+    long end = get_nanoseconds();
 
     printf("Closest pair: (%.2f, %.2f) and (%.2f, %.2f)\n", p1.x, p1.y, p2.x, p2.y);
     printf("Execution time: %ld nanoseconds\n", end - start);
