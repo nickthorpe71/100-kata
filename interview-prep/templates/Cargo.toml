@@ -1,0 +1,11 @@
+[package]
+name = "interview_problem"
+version = "0.1.0"
+edition = "2021"
+
+# R* Principle: Zero external dependencies
+[dependencies]
+
+[[bin]]
+name = "solution"
+path = "solution.rs"

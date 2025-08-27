@@ -1,0 +1,1 @@
+/mnt/c/Users/nickt/CodeStore/CodeWars/100-kata/interview-prep/questions/01-pair-finder/target/debug/pair-finder: /mnt/c/Users/nickt/CodeStore/CodeWars/100-kata/interview-prep/questions/01-pair-finder/src/main.rs

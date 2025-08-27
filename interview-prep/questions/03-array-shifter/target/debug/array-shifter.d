@@ -1,0 +1,1 @@
+/mnt/c/Users/nickt/CodeStore/CodeWars/100-kata/interview-prep/questions/03-array-shifter/target/debug/array-shifter: /mnt/c/Users/nickt/CodeStore/CodeWars/100-kata/interview-prep/questions/03-array-shifter/src/main.rs

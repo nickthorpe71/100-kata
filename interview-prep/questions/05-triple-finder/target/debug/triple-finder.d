@@ -1,0 +1,1 @@
+/mnt/c/Users/nickt/CodeStore/CodeWars/100-kata/interview-prep/questions/05-triple-finder/target/debug/triple-finder: /mnt/c/Users/nickt/CodeStore/CodeWars/100-kata/interview-prep/questions/05-triple-finder/src/main.rs
