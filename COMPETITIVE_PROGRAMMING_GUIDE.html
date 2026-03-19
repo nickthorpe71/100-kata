@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Competitive Programming Guide</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="print-style.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Competitive Programming Guide</h1>
+</header>
+<nav id="TOC">
+<ul>
+<li><a href="#competitive-programming-quick-reference"><span class="toc-section-number">1</span> Competitive Programming Quick Reference</a><ul>
+<li><a href="#table-of-contents"><span class="toc-section-number">1.1</span> Table of Contents</a><ul>
+<li><a href="#part-i-core-patterns-1-10"><span class="toc-section-number">1.1.1</span> Part I: Core Patterns (1-10)</a></li>
+<li><a href="#part-ii-advanced-patterns-11-15"><span class="toc-section-number">1.1.2</span> Part II: Advanced Patterns (11-15)</a></li>
+<li><a href="#part-iii-interview-strategy"><span class="toc-section-number">1.1.3</span> Part III: Interview Strategy</a></li>
+<li><a href="#part-iv-interview-excellence"><span class="toc-section-number">1.1.4</span> Part IV: Interview Excellence</a></li>
+</ul></li>
+<li><a href="#part-i-core-patterns"><span class="toc-section-number">1.2</span> Part I: Core Patterns</a></li>
+<li><a href="#pattern-recognition-map"><span class="toc-section-number">1.3</span> Pattern Recognition Map</a><ul>
+<li><a href="#arraystring-manipulation"><span class="toc-section-number">1.3.1</span> 1. ARRAY/STRING MANIPULATION</a></li>
+<li><a href="#trees-graphs"><span class="toc-section-number">1.3.2</span> 2. TREES &amp; GRAPHS</a></li>
+<li><a href="#dynamic-programming"><span class="toc-section-number">1.3.3</span> 3. DYNAMIC PROGRAMMING</a></li>
+<li><a href="#backtracking-recursion"><span class="toc-section-number">1.3.4</span> 4. BACKTRACKING &amp; RECURSION</a></li>
+<li><a href="#greedy-intervals"><span class="toc-section-number">1.3.5</span> 5. GREEDY &amp; INTERVALS</a></li>
+<li><a href="#math-number-theory"><span class="toc-section-number">1.3.6</span> 6. MATH &amp; NUMBER THEORY</a></li>
+<li><a href="#bit-manipulation"><span class="toc-section-number">1.3.7</span> 7. BIT MANIPULATION</a></li>
+<li><a href="#stackqueue"><span class="toc-section-number">1.3.8</span> 8. STACK/QUEUE</a></li>
+<li><a href="#binary-search"><span class="toc-section-number">1.3.9</span> 9. BINARY SEARCH</a></li>
+<li><a href="#linked-lists"><span class="toc-section-number">1.3.10</span> 10. LINKED LISTS</a></li>
+</ul></li>
+<li><a href="#part-ii-advanced-patterns"><span class="toc-section-number">1.4</span> Part II: Advanced Patterns</a><ul>
+<li><a href="#sliding-window"><span class="toc-section-number">1.4.1</span> 11. SLIDING WINDOW</a></li>
+<li><a href="#monotonic-stackqueue"><span class="toc-section-number">1.4.2</span> 12. MONOTONIC STACK/QUEUE</a></li>
+<li><a href="#union-find-disjoint-set"><span class="toc-section-number">1.4.3</span> 13. UNION FIND (DISJOINT SET)</a></li>
+<li><a href="#trie-prefix-tree"><span class="toc-section-number">1.4.4</span> 14. TRIE (PREFIX TREE)</a></li>
+<li><a href="#topological-sort"><span class="toc-section-number">1.4.5</span> 15. TOPOLOGICAL SORT</a></li>
+</ul></li>
+<li><a href="#part-iii-interview-strategy-1"><span class="toc-section-number">1.5</span> Part III: Interview Strategy</a></li>
+<li><a href="#quick-decision-tree"><span class="toc-section-number">1.6</span> Quick Decision Tree</a></li>
+<li><a href="#minute-strategy"><span class="toc-section-number">1.7</span> 20-Minute Strategy</a><ul>
+<li><a href="#red-flags-rethink-approach"><span class="toc-section-number">1.7.1</span> Red Flags (Rethink approach)</a></li>
+</ul></li>
+<li><a href="#complexity-cheat-sheet"><span class="toc-section-number">1.8</span> Complexity Cheat Sheet</a></li>
+<li><a href="#common-edge-cases-checklist"><span class="toc-section-number">1.9</span> Common Edge Cases Checklist</a></li>
+<li><a href="#part-iv-interview-excellence-1"><span class="toc-section-number">1.10</span> Part IV: Interview Excellence</a></li>
+<li><a href="#interview-communication-framework"><span class="toc-section-number">1.11</span> Interview Communication Framework</a><ul>
+<li><a href="#the-5-step-method"><span class="toc-section-number">1.11.1</span> The 5-Step Method</a></li>
+<li><a href="#communication-templates"><span class="toc-section-number">1.11.2</span> Communication Templates</a></li>
+</ul></li>
+<li><a href="#pattern-recognition-shortcuts"><span class="toc-section-number">1.12</span> Pattern Recognition Shortcuts</a><ul>
+<li><a href="#if-you-see-this-think-that"><span class="toc-section-number">1.12.1</span> “If You See This… Think That”</a></li>
+<li><a href="#multiple-approaches-ranking"><span class="toc-section-number">1.12.2</span> Multiple Approaches Ranking</a></li>
+</ul></li>
+<li><a href="#c-stl-quick-reference"><span class="toc-section-number">1.13</span> C++ STL Quick Reference</a><ul>
+<li><a href="#container-selection"><span class="toc-section-number">1.13.1</span> Container Selection</a></li>
+<li><a href="#common-stl-patterns"><span class="toc-section-number">1.13.2</span> Common STL Patterns</a></li>
+<li><a href="#common-gotchas"><span class="toc-section-number">1.13.3</span> Common Gotchas</a></li>
+</ul></li>
+<li><a href="#debugging-in-interviews"><span class="toc-section-number">1.14</span> Debugging in Interviews</a><ul>
+<li><a href="#print-statement-strategy"><span class="toc-section-number">1.14.1</span> Print Statement Strategy</a></li>
+<li><a href="#trace-through-method"><span class="toc-section-number">1.14.2</span> Trace Through Method</a></li>
+<li><a href="#common-bugs-by-pattern"><span class="toc-section-number">1.14.3</span> Common Bugs by Pattern</a></li>
+</ul></li>
+<li><a href="#practice-roadmap"><span class="toc-section-number">1.15</span> Practice Roadmap</a><ul>
+<li><a href="#master-these-15-problems"><span class="toc-section-number">1.15.1</span> Master These 15 Problems</a></li>
+<li><a href="#progression-path"><span class="toc-section-number">1.15.2</span> Progression Path</a></li>
+</ul></li>
+<li><a href="#system-design-context"><span class="toc-section-number">1.16</span> System Design Context</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="competitive-programming-quick-reference"><span class="header-section-number">1</span> Competitive Programming Quick Reference</h1>
+<p><strong>Goal:</strong> Ace senior-level technical interviews and solve medium LeetCode problems in 20 minutes</p>
+<hr />
+<h2 id="table-of-contents"><span class="header-section-number">1.1</span> Table of Contents</h2>
+<h3 id="part-i-core-patterns-1-10"><span class="header-section-number">1.1.1</span> Part I: Core Patterns (1-10)</h3>
+<ol type="1">
+<li><a href="#1-arraystring-manipulation">Array/String Manipulation</a></li>
+<li><a href="#2-trees--graphs">Trees &amp; Graphs</a></li>
+<li><a href="#3-dynamic-programming">Dynamic Programming</a></li>
+<li><a href="#4-backtracking--recursion">Backtracking &amp; Recursion</a></li>
+<li><a href="#5-greedy--intervals">Greedy &amp; Intervals</a></li>
+<li><a href="#6-math--number-theory">Math &amp; Number Theory</a></li>
+<li><a href="#7-bit-manipulation">Bit Manipulation</a></li>
+<li><a href="#8-stackqueue">Stack/Queue</a></li>
+<li><a href="#9-binary-search">Binary Search</a></li>
+<li><a href="#10-linked-lists">Linked Lists</a></li>
+</ol>
+<h3 id="part-ii-advanced-patterns-11-15"><span class="header-section-number">1.1.2</span> Part II: Advanced Patterns (11-15)</h3>
+<ol start="11" type="1">
+<li><a href="#11-sliding-window">Sliding Window</a></li>
+<li><a href="#12-monotonic-stackqueue">Monotonic Stack/Queue</a></li>
+<li><a href="#13-union-find-disjoint-set">Union Find (Disjoint Set)</a></li>
+<li><a href="#14-trie-prefix-tree">Trie (Prefix Tree)</a></li>
+<li><a href="#15-topological-sort">Topological Sort</a></li>
+</ol>
+<h3 id="part-iii-interview-strategy"><span class="header-section-number">1.1.3</span> Part III: Interview Strategy</h3>
+<ul>
+<li><a href="#quick-decision-tree">Quick Decision Tree</a></li>
+<li><a href="#20-minute-strategy">20-Minute Strategy</a></li>
+<li><a href="#complexity-cheat-sheet">Complexity Cheat Sheet</a></li>
+<li><a href="#common-edge-cases-checklist">Common Edge Cases Checklist</a></li>
+</ul>
+<h3 id="part-iv-interview-excellence"><span class="header-section-number">1.1.4</span> Part IV: Interview Excellence</h3>
+<ul>
+<li><a href="#interview-communication-framework">Interview Communication Framework</a></li>
+<li><a href="#pattern-recognition-shortcuts">Pattern Recognition Shortcuts</a></li>
+<li><a href="#c-stl-quick-reference">C++ STL Quick Reference</a></li>
+<li><a href="#debugging-in-interviews">Debugging in Interviews</a></li>
+<li><a href="#practice-roadmap">Practice Roadmap</a></li>
+<li><a href="#system-design-context">System Design Context</a></li>
+</ul>
+<hr />
+<h2 id="part-i-core-patterns"><span class="header-section-number">1.2</span> Part I: Core Patterns</h2>
+<h2 id="pattern-recognition-map"><span class="header-section-number">1.3</span> Pattern Recognition Map</h2>
+<h3 id="arraystring-manipulation"><span class="header-section-number">1.3.1</span> 1. ARRAY/STRING MANIPULATION</h3>
+<p><strong>Signals:</strong> - Simple transformations on collections (map, filter, reduce operations) - Sorting can simplify the problem (pairing, finding duplicates, k-th element) - Need to pair/combine elements optimally (min sum, max product) - In-place modifications required (reverse, rotate, partition) - Problems mention “rearrange”, “reorder”, “minimize/maximize sum” - Finding k largest/smallest elements</p>
+<p><strong>Patterns:</strong></p>
+<p><strong>Sort + Two Pointers</strong> (O(n log n))</p>
+<p><em>Use when you need to pair elements optimally. Sorting brings related elements together, then two pointers from opposite ends can find the best combinations. Common in problems asking to minimize/maximize sums or products of pairs.</em></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" title="1"><span class="dt">int</span> minSum(vector&lt;<span class="dt">int</span>&gt;&amp; arr) {</a>
+<a class="sourceLine" id="cb1-2" title="2">  sort(arr.begin(), arr.end());</a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="dt">int</span> sum = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="dt">int</span> n = arr.size();</a>
+<a class="sourceLine" id="cb1-5" title="5"></a>
+<a class="sourceLine" id="cb1-6" title="6">  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; n / <span class="dv">2</span>; i++) {</a>
+<a class="sourceLine" id="cb1-7" title="7">    sum += arr[i] * arr[n - <span class="dv">1</span> - i];</a>
+<a class="sourceLine" id="cb1-8" title="8">  }</a>
+<a class="sourceLine" id="cb1-9" title="9">  <span class="cf">return</span> sum;</a>
+<a class="sourceLine" id="cb1-10" title="10">}</a></code></pre></div>
+<p><strong>Top-K Selection</strong> (O(n log n))</p>
+<p><em>Use when you need the k largest/smallest elements. Sort in the desired order and take the first k elements. For better performance, use a heap (O(n log k)) or quickselect (O(n) average).</em></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" title="1"><span class="dt">long</span> <span class="dt">long</span> maxProduct(vector&lt;<span class="dt">int</span>&gt;&amp; nums, <span class="dt">int</span> k) {</a>
+<a class="sourceLine" id="cb2-2" title="2">  sort(nums.begin(), nums.end(), greater&lt;<span class="dt">int</span>&gt;());</a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="dt">long</span> <span class="dt">long</span> product = <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb2-4" title="4"></a>
+<a class="sourceLine" id="cb2-5" title="5">  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; k; i++) {</a>
+<a class="sourceLine" id="cb2-6" title="6">    product *= nums[i];</a>
+<a class="sourceLine" id="cb2-7" title="7">  }</a>
+<a class="sourceLine" id="cb2-8" title="8">  <span class="cf">return</span> product;</a>
+<a class="sourceLine" id="cb2-9" title="9">}</a></code></pre></div>
+<p><strong>Two-Pointer String</strong> (O(n))</p>
+<p><em>Use for in-place string manipulation or when processing from both ends. Avoids expensive string concatenation. One pointer tracks position in result, another tracks boundaries of elements to process.</em></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" title="1">string reverseWords(string s) {</a>
+<a class="sourceLine" id="cb3-2" title="2">  string result;</a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="dt">int</span> n = s.length();</a>
+<a class="sourceLine" id="cb3-4" title="4">  <span class="dt">int</span> r = n - <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb3-5" title="5"></a>
+<a class="sourceLine" id="cb3-6" title="6">  <span class="cf">for</span> (<span class="dt">int</span> i = n - <span class="dv">1</span>; i &gt;= <span class="dv">0</span>; i--) {</a>
+<a class="sourceLine" id="cb3-7" title="7">    <span class="cf">if</span> (s[i] == <span class="ch">&#39; &#39;</span> || i == <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb3-8" title="8">      <span class="dt">int</span> start = (i == <span class="dv">0</span>) ? i : i + <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb3-9" title="9">      <span class="cf">for</span> (<span class="dt">int</span> j = start; j &lt;= r; j++) {</a>
+<a class="sourceLine" id="cb3-10" title="10">        result += s[j];</a>
+<a class="sourceLine" id="cb3-11" title="11">      }</a>
+<a class="sourceLine" id="cb3-12" title="12">      <span class="cf">if</span> (i != <span class="dv">0</span>) result += <span class="ch">&#39; &#39;</span>;</a>
+<a class="sourceLine" id="cb3-13" title="13">      r = i - <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb3-14" title="14">    }</a>
+<a class="sourceLine" id="cb3-15" title="15">  }</a>
+<a class="sourceLine" id="cb3-16" title="16">  <span class="cf">return</span> result;</a>
+<a class="sourceLine" id="cb3-17" title="17">}</a></code></pre></div>
+<p><strong>Pitfalls:</strong> Empty arrays, off-by-one, string immutability</p>
+<hr />
+<h3 id="trees-graphs"><span class="header-section-number">1.3.2</span> 2. TREES &amp; GRAPHS</h3>
+<p><strong>Signals:</strong> - Hierarchical data (parent-child relationships, organizational charts) - Explore paths/levels (root to leaf, level order traversal) - Optimal path finding (shortest path, minimum cost path) - Connectivity problems (islands, connected components, is reachable) - Problems mention “tree”, “graph”, “node”, “traversal”, “path” - Questions about “depth”, “height”, “diameter”, “ancestors” - Grid/matrix exploration (maze, flood fill, word search)</p>
+<p><strong>Patterns:</strong></p>
+<p><strong>DFS Path Sum</strong> (O(n))</p>
+<p><em>Use for finding paths from root to leaves or computing aggregate values along paths. DFS explores each path fully before backtracking. Perfect for “maximum/minimum path sum” problems.</em></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" title="1"><span class="dt">int</span> maxPathSum(TreeNode* root) {</a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="cf">if</span> (!root) <span class="cf">return</span> <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb4-3" title="3"></a>
+<a class="sourceLine" id="cb4-4" title="4">  <span class="cf">if</span> (!root-&gt;left &amp;&amp; !root-&gt;right)</a>
+<a class="sourceLine" id="cb4-5" title="5">    <span class="cf">return</span> root-&gt;val;</a>
+<a class="sourceLine" id="cb4-6" title="6"></a>
+<a class="sourceLine" id="cb4-7" title="7">  <span class="dt">int</span> leftMax = root-&gt;left ? maxPathSum(root-&gt;left) : INT_MIN;</a>
+<a class="sourceLine" id="cb4-8" title="8">  <span class="dt">int</span> rightMax = root-&gt;right ? maxPathSum(root-&gt;right) : INT_MIN;</a>
+<a class="sourceLine" id="cb4-9" title="9"></a>
+<a class="sourceLine" id="cb4-10" title="10">  <span class="cf">return</span> root-&gt;val + max(leftMax, rightMax);</a>
+<a class="sourceLine" id="cb4-11" title="11">}</a></code></pre></div>
+<p><strong>BFS Level-Order</strong> (O(n))</p>
+<p><em>Use when you need to process nodes level-by-level or find shortest paths in unweighted graphs. Queue ensures nodes are visited in order of distance from root. Essential for “level order traversal” and “shortest path” problems.</em></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" title="1">vector&lt;<span class="dt">int</span>&gt; bfs(TreeNode* root) {</a>
+<a class="sourceLine" id="cb5-2" title="2">  vector&lt;<span class="dt">int</span>&gt; result;</a>
+<a class="sourceLine" id="cb5-3" title="3">  <span class="cf">if</span> (!root) <span class="cf">return</span> result;</a>
+<a class="sourceLine" id="cb5-4" title="4"></a>
+<a class="sourceLine" id="cb5-5" title="5">  queue&lt;TreeNode*&gt; q;</a>
+<a class="sourceLine" id="cb5-6" title="6">  q.push(root);</a>
+<a class="sourceLine" id="cb5-7" title="7"></a>
+<a class="sourceLine" id="cb5-8" title="8">  <span class="cf">while</span> (!q.empty()) {</a>
+<a class="sourceLine" id="cb5-9" title="9">    TreeNode* node = q.front();</a>
+<a class="sourceLine" id="cb5-10" title="10">    q.pop();</a>
+<a class="sourceLine" id="cb5-11" title="11">    result.push_back(node-&gt;val);</a>
+<a class="sourceLine" id="cb5-12" title="12"></a>
+<a class="sourceLine" id="cb5-13" title="13">    <span class="cf">if</span> (node-&gt;left) q.push(node-&gt;left);</a>
+<a class="sourceLine" id="cb5-14" title="14">    <span class="cf">if</span> (node-&gt;right) q.push(node-&gt;right);</a>
+<a class="sourceLine" id="cb5-15" title="15">  }</a>
+<a class="sourceLine" id="cb5-16" title="16"></a>
+<a class="sourceLine" id="cb5-17" title="17">  <span class="cf">return</span> result;</a>
+<a class="sourceLine" id="cb5-18" title="18">}</a></code></pre></div>
+<p><strong>DFS Grid/Maze</strong> (O(rows × cols))</p>
+<p><em>Use for exploring 2D grids, finding paths in mazes, or counting connected components. Mark cells as visited to avoid cycles. The grid itself acts as the visited tracker by modifying cells in-place.</em></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" title="1"><span class="dt">bool</span> dfs(vector&lt;vector&lt;<span class="dt">char</span>&gt;&gt;&amp; grid, <span class="dt">int</span> x, <span class="dt">int</span> y) {</a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="cf">if</span> (x &lt; <span class="dv">0</span> || y &lt; <span class="dv">0</span> || x &gt;= n || y &gt;= n ||</a>
+<a class="sourceLine" id="cb6-3" title="3">      grid[x][y] == <span class="ch">&#39;W&#39;</span> || grid[x][y] == <span class="ch">&#39;V&#39;</span>)</a>
+<a class="sourceLine" id="cb6-4" title="4">    <span class="cf">return</span> <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb6-5" title="5"></a>
+<a class="sourceLine" id="cb6-6" title="6">  <span class="cf">if</span> (x == targetX &amp;&amp; y == targetY) <span class="cf">return</span> <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb6-7" title="7"></a>
+<a class="sourceLine" id="cb6-8" title="8">  grid[x][y] = <span class="ch">&#39;V&#39;</span>; <span class="co">// Mark visited</span></a>
+<a class="sourceLine" id="cb6-9" title="9"></a>
+<a class="sourceLine" id="cb6-10" title="10">  <span class="cf">return</span> dfs(grid, x+<span class="dv">1</span>, y) || dfs(grid, x-<span class="dv">1</span>, y) ||</a>
+<a class="sourceLine" id="cb6-11" title="11">         dfs(grid, x, y+<span class="dv">1</span>) || dfs(grid, x, y-<span class="dv">1</span>);</a>
+<a class="sourceLine" id="cb6-12" title="12">}</a></code></pre></div>
+<p><strong>Pitfalls:</strong> Forgetting visited marks, null handling, wrong traversal order</p>
+<hr />
+<h3 id="dynamic-programming"><span class="header-section-number">1.3.3</span> 3. DYNAMIC PROGRAMMING</h3>
+<p><strong>Signals:</strong> - “Find optimal/best/minimum/maximum” (but with constraints) - Subproblems overlap (solving same subproblem multiple times) - Counting combinations/partitions (how many ways, total possibilities) - Problems with “can you make”, “ways to reach”, “fewest steps” - Optimization problems with choices at each step - Knapsack variants (0/1, unbounded, subset sum) - String matching/editing (edit distance, longest common subsequence) - Fibonacci-like recurrences</p>
+<p><strong>Patterns:</strong></p>
+<p><strong>Combination Sum</strong> (O(2^n))</p>
+<p><em>Use when you must select exactly k items from n to optimize some value. The mask pattern generates all k-combinations efficiently. For smaller k, this beats backtracking. Use prev_permutation on a boolean mask.</em></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" title="1"><span class="dt">int</span> bestSum(<span class="dt">int</span> target, <span class="dt">int</span> k, vector&lt;<span class="dt">int</span>&gt;&amp; nums) {</a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="dt">int</span> best = -<span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb7-3" title="3">  vector&lt;<span class="dt">bool</span>&gt; mask(nums.size(), <span class="kw">false</span>);</a>
+<a class="sourceLine" id="cb7-4" title="4">  fill(mask.begin(), mask.begin() + k, <span class="kw">true</span>);</a>
+<a class="sourceLine" id="cb7-5" title="5"></a>
+<a class="sourceLine" id="cb7-6" title="6">  <span class="cf">do</span> {</a>
+<a class="sourceLine" id="cb7-7" title="7">    <span class="dt">int</span> sum = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb7-8" title="8">    <span class="cf">for</span> (<span class="dt">size_t</span> i = <span class="dv">0</span>; i &lt; nums.size(); i++)</a>
+<a class="sourceLine" id="cb7-9" title="9">      <span class="cf">if</span> (mask[i]) sum += nums[i];</a>
+<a class="sourceLine" id="cb7-10" title="10">    <span class="cf">if</span> (sum &lt;= target &amp;&amp; sum &gt; best) best = sum;</a>
+<a class="sourceLine" id="cb7-11" title="11">  } <span class="cf">while</span> (prev_permutation(mask.begin(), mask.end()));</a>
+<a class="sourceLine" id="cb7-12" title="12"></a>
+<a class="sourceLine" id="cb7-13" title="13">  <span class="cf">return</span> best;</a>
+<a class="sourceLine" id="cb7-14" title="14">}</a></code></pre></div>
+<p><strong>Partition Counting</strong> (O(n²))</p>
+<p><em>Use for counting ways to partition integers or make change. The pentagonal number theorem provides an efficient recurrence. dp[i] represents count for value i. Build up from base case dp[0] = 1.</em></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" title="1"><span class="dt">long</span> <span class="dt">long</span> countPartitions(<span class="dt">int</span> n) {</a>
+<a class="sourceLine" id="cb8-2" title="2">  vector&lt;<span class="dt">long</span> <span class="dt">long</span>&gt; dp(n + <span class="dv">1</span>, <span class="dv">0</span>);</a>
+<a class="sourceLine" id="cb8-3" title="3">  dp[<span class="dv">0</span>] = <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb8-4" title="4"></a>
+<a class="sourceLine" id="cb8-5" title="5">  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">1</span>; i &lt;= n; i++) {</a>
+<a class="sourceLine" id="cb8-6" title="6">    <span class="cf">for</span> (<span class="dt">int</span> k = <span class="dv">1</span>;; k++) {</a>
+<a class="sourceLine" id="cb8-7" title="7">      <span class="dt">int</span> p1 = k * (<span class="dv">3</span>*k - <span class="dv">1</span>) / <span class="dv">2</span>;</a>
+<a class="sourceLine" id="cb8-8" title="8">      <span class="dt">int</span> p2 = k * (<span class="dv">3</span>*k + <span class="dv">1</span>) / <span class="dv">2</span>;</a>
+<a class="sourceLine" id="cb8-9" title="9">      <span class="cf">if</span> (p1 &gt; i &amp;&amp; p2 &gt; i) <span class="cf">break</span>;</a>
+<a class="sourceLine" id="cb8-10" title="10"></a>
+<a class="sourceLine" id="cb8-11" title="11">      <span class="cf">if</span> (p1 &lt;= i) dp[i] += (k % <span class="dv">2</span> ? dp[i-p1] : -dp[i-p1]);</a>
+<a class="sourceLine" id="cb8-12" title="12">      <span class="cf">if</span> (p2 &lt;= i) dp[i] += (k % <span class="dv">2</span> ? dp[i-p2] : -dp[i-p2]);</a>
+<a class="sourceLine" id="cb8-13" title="13">    }</a>
+<a class="sourceLine" id="cb8-14" title="14">  }</a>
+<a class="sourceLine" id="cb8-15" title="15">  <span class="cf">return</span> dp[n];</a>
+<a class="sourceLine" id="cb8-16" title="16">}</a></code></pre></div>
+<p><strong>Pitfalls:</strong> Wrong base cases, iteration order, overflow</p>
+<hr />
+<h3 id="backtracking-recursion"><span class="header-section-number">1.3.4</span> 4. BACKTRACKING &amp; RECURSION</h3>
+<p><strong>Signals:</strong> - Generate all permutations/combinations (need to explore all possibilities) - Constraint satisfaction (N-Queens, Sudoku, valid arrangement) - “Find one valid solution” (not optimal, just valid) - Problems asking for “all possible”, “generate all”, “list all” - Combinatorial explosion (factorial/exponential possibilities) - Must satisfy multiple constraints simultaneously - Trial and error with ability to undo (place/remove, mark/unmark)</p>
+<p><strong>Patterns:</strong></p>
+<p><strong>Permutation Generation</strong> (O(n!))</p>
+<p><em>Use when you need all permutations of a sequence. Swap elements to generate different orderings, backtrack by swapping back. Use a set to skip duplicate characters at each position for deduplication.</em></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb9-1" title="1"><span class="dt">void</span> permute(string str, <span class="dt">int</span> start, vector&lt;string&gt;&amp; result) {</a>
+<a class="sourceLine" id="cb9-2" title="2">  <span class="cf">if</span> (start == str.length()) {</a>
+<a class="sourceLine" id="cb9-3" title="3">    result.push_back(str);</a>
+<a class="sourceLine" id="cb9-4" title="4">    <span class="cf">return</span>;</a>
+<a class="sourceLine" id="cb9-5" title="5">  }</a>
+<a class="sourceLine" id="cb9-6" title="6"></a>
+<a class="sourceLine" id="cb9-7" title="7">  unordered_set&lt;<span class="dt">char</span>&gt; used;</a>
+<a class="sourceLine" id="cb9-8" title="8">  <span class="cf">for</span> (<span class="dt">int</span> i = start; i &lt; str.length(); i++) {</a>
+<a class="sourceLine" id="cb9-9" title="9">    <span class="cf">if</span> (used.count(str[i])) <span class="cf">continue</span>; <span class="co">// Skip duplicates</span></a>
+<a class="sourceLine" id="cb9-10" title="10">    used.insert(str[i]);</a>
+<a class="sourceLine" id="cb9-11" title="11"></a>
+<a class="sourceLine" id="cb9-12" title="12">    swap(str[start], str[i]);</a>
+<a class="sourceLine" id="cb9-13" title="13">    permute(str, start + <span class="dv">1</span>, result);</a>
+<a class="sourceLine" id="cb9-14" title="14">    swap(str[start], str[i]); <span class="co">// Backtrack</span></a>
+<a class="sourceLine" id="cb9-15" title="15">  }</a>
+<a class="sourceLine" id="cb9-16" title="16">}</a>
+<a class="sourceLine" id="cb9-17" title="17"></a>
+<a class="sourceLine" id="cb9-18" title="18">vector&lt;string&gt; getPermutations(string str) {</a>
+<a class="sourceLine" id="cb9-19" title="19">  vector&lt;string&gt; result;</a>
+<a class="sourceLine" id="cb9-20" title="20">  permute(str, <span class="dv">0</span>, result);</a>
+<a class="sourceLine" id="cb9-21" title="21">  <span class="cf">return</span> result;</a>
+<a class="sourceLine" id="cb9-22" title="22">}</a></code></pre></div>
+<p><strong>Backtracking with Constraints</strong> (O(varies))</p>
+<p><em>Use for constraint satisfaction problems where you need to find one valid solution. Try each possibility, recurse if valid, undo (backtrack) if it doesn’t work. Track used elements and current path state.</em></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" title="1">vector&lt;<span class="dt">int</span>&gt; findSequence(<span class="dt">int</span> n) {</a>
+<a class="sourceLine" id="cb10-2" title="2">  vector&lt;<span class="dt">int</span>&gt; path;</a>
+<a class="sourceLine" id="cb10-3" title="3">  vector&lt;<span class="dt">bool</span>&gt; used(n + <span class="dv">1</span>, <span class="kw">false</span>);</a>
+<a class="sourceLine" id="cb10-4" title="4"></a>
+<a class="sourceLine" id="cb10-5" title="5">  function&lt;<span class="dt">bool</span>()&gt; backtrack = [&amp;]() -&gt; <span class="dt">bool</span> {</a>
+<a class="sourceLine" id="cb10-6" title="6">    <span class="cf">if</span> (path.size() == n) <span class="cf">return</span> <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb10-7" title="7"></a>
+<a class="sourceLine" id="cb10-8" title="8">    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">1</span>; i &lt;= n; i++) {</a>
+<a class="sourceLine" id="cb10-9" title="9">      <span class="cf">if</span> (!used[i] &amp;&amp; isValid(path, i)) {</a>
+<a class="sourceLine" id="cb10-10" title="10">        path.push_back(i);</a>
+<a class="sourceLine" id="cb10-11" title="11">        used[i] = <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb10-12" title="12"></a>
+<a class="sourceLine" id="cb10-13" title="13">        <span class="cf">if</span> (backtrack()) <span class="cf">return</span> <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb10-14" title="14"></a>
+<a class="sourceLine" id="cb10-15" title="15">        path.pop_back();  <span class="co">// Backtrack</span></a>
+<a class="sourceLine" id="cb10-16" title="16">        used[i] = <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb10-17" title="17">      }</a>
+<a class="sourceLine" id="cb10-18" title="18">    }</a>
+<a class="sourceLine" id="cb10-19" title="19">    <span class="cf">return</span> <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb10-20" title="20">  };</a>
+<a class="sourceLine" id="cb10-21" title="21"></a>
+<a class="sourceLine" id="cb10-22" title="22">  backtrack();</a>
+<a class="sourceLine" id="cb10-23" title="23">  <span class="cf">return</span> path;</a>
+<a class="sourceLine" id="cb10-24" title="24">}</a></code></pre></div>
+<p><strong>Pitfalls:</strong> Forgetting to backtrack, not pruning, duplicates</p>
+<hr />
+<h3 id="greedy-intervals"><span class="header-section-number">1.3.5</span> 5. GREEDY &amp; INTERVALS</h3>
+<p><strong>Signals:</strong> - Merging overlapping intervals (meeting rooms, time ranges) - Scheduling/resource allocation (tasks, jobs, rooms) - Locally optimal choices lead to global optimum - Problems with “intervals”, “ranges”, “start/end times” - “Minimum number of resources needed” - Activity selection (maximum non-overlapping activities) - Questions about overlaps, conflicts, or gaps</p>
+<p><strong>Patterns:</strong></p>
+<p><strong>Interval Merging</strong> (O(n log n))</p>
+<p><em>Use for overlapping interval problems. Sort by start time, then merge overlapping intervals by extending the end. Track current interval and merge when next interval starts before current ends.</em></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb11-1" title="1"><span class="dt">int</span> sumIntervals(vector&lt;pair&lt;<span class="dt">int</span>,<span class="dt">int</span>&gt;&gt;&amp; intervals) {</a>
+<a class="sourceLine" id="cb11-2" title="2">  <span class="cf">if</span> (intervals.empty()) <span class="cf">return</span> <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb11-3" title="3"></a>
+<a class="sourceLine" id="cb11-4" title="4">  sort(intervals.begin(), intervals.end());</a>
+<a class="sourceLine" id="cb11-5" title="5"></a>
+<a class="sourceLine" id="cb11-6" title="6">  <span class="dt">int</span> total = <span class="dv">0</span>, start = intervals[<span class="dv">0</span>].first, end = intervals[<span class="dv">0</span>].second;</a>
+<a class="sourceLine" id="cb11-7" title="7"></a>
+<a class="sourceLine" id="cb11-8" title="8">  <span class="cf">for</span> (<span class="at">const</span> <span class="kw">auto</span>&amp; [a, b] : intervals) {</a>
+<a class="sourceLine" id="cb11-9" title="9">    <span class="cf">if</span> (a &lt;= end) {</a>
+<a class="sourceLine" id="cb11-10" title="10">      end = max(end, b);  <span class="co">// Merge</span></a>
+<a class="sourceLine" id="cb11-11" title="11">    } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb11-12" title="12">      total += end - start;</a>
+<a class="sourceLine" id="cb11-13" title="13">      start = a;</a>
+<a class="sourceLine" id="cb11-14" title="14">      end = b;</a>
+<a class="sourceLine" id="cb11-15" title="15">    }</a>
+<a class="sourceLine" id="cb11-16" title="16">  }</a>
+<a class="sourceLine" id="cb11-17" title="17"></a>
+<a class="sourceLine" id="cb11-18" title="18">  <span class="cf">return</span> total + (end - start);</a>
+<a class="sourceLine" id="cb11-19" title="19">}</a></code></pre></div>
+<p><strong>Priority Queue Scheduling</strong> (O(n log n))</p>
+<p><em>Use for scheduling problems with overlapping events. Min heap tracks when resources become available. Sort events by start time, reuse resources that finish before next event starts.</em></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb12-1" title="1">vector&lt;<span class="dt">int</span>&gt; allocateRooms(vector&lt;pair&lt;<span class="dt">int</span>,<span class="dt">int</span>&gt;&gt;&amp; events) {</a>
+<a class="sourceLine" id="cb12-2" title="2">  sort(events.begin(), events.end());</a>
+<a class="sourceLine" id="cb12-3" title="3"></a>
+<a class="sourceLine" id="cb12-4" title="4">  priority_queue&lt;pair&lt;<span class="dt">int</span>,<span class="dt">int</span>&gt;, vector&lt;pair&lt;<span class="dt">int</span>,<span class="dt">int</span>&gt;&gt;,</a>
+<a class="sourceLine" id="cb12-5" title="5">                 greater&lt;pair&lt;<span class="dt">int</span>,<span class="dt">int</span>&gt;&gt;&gt; heap; <span class="co">// min heap</span></a>
+<a class="sourceLine" id="cb12-6" title="6">  vector&lt;<span class="dt">int</span>&gt; allocations;</a>
+<a class="sourceLine" id="cb12-7" title="7">  <span class="dt">int</span> roomNum = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb12-8" title="8"></a>
+<a class="sourceLine" id="cb12-9" title="9">  <span class="cf">for</span> (<span class="at">const</span> <span class="kw">auto</span>&amp; [start, end] : events) {</a>
+<a class="sourceLine" id="cb12-10" title="10">    <span class="cf">if</span> (!heap.empty() &amp;&amp; heap.top().first &lt; start) {</a>
+<a class="sourceLine" id="cb12-11" title="11">      <span class="dt">int</span> roomId = heap.top().second;</a>
+<a class="sourceLine" id="cb12-12" title="12">      heap.pop();</a>
+<a class="sourceLine" id="cb12-13" title="13">      allocations.push_back(roomId);</a>
+<a class="sourceLine" id="cb12-14" title="14">      heap.push({end, roomId});</a>
+<a class="sourceLine" id="cb12-15" title="15">    } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb12-16" title="16">      allocations.push_back(++roomNum);</a>
+<a class="sourceLine" id="cb12-17" title="17">      heap.push({end, roomNum});</a>
+<a class="sourceLine" id="cb12-18" title="18">    }</a>
+<a class="sourceLine" id="cb12-19" title="19">  }</a>
+<a class="sourceLine" id="cb12-20" title="20"></a>
+<a class="sourceLine" id="cb12-21" title="21">  <span class="cf">return</span> allocations;</a>
+<a class="sourceLine" id="cb12-22" title="22">}</a></code></pre></div>
+<p><strong>Pitfalls:</strong> Not sorting first, wrong overlap check (&lt;=), forgetting last interval</p>
+<hr />
+<h3 id="math-number-theory"><span class="header-section-number">1.3.6</span> 6. MATH &amp; NUMBER THEORY</h3>
+<p><strong>Signals:</strong> - Primes, factors, divisibility (factorization, prime checking) - GCD/LCM (simplification, least common multiple) - Modular arithmetic (large numbers, remainders, cycles) - Problems with “divisible by”, “prime”, “factors”, “multiples” - Large exponents (a^b where b is huge) - Number patterns, sequences (Fibonacci, factorials, combinatorics) - Digit manipulation (sum of digits, reverse number)</p>
+<p><strong>Patterns:</strong></p>
+<p><strong>Prime Factorization</strong> (O(√n))</p>
+<p><em>Use when you need to break a number into prime factors. Only check up to √n since factors come in pairs. Count each prime’s occurrence with a while loop, dividing n each time.</em></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb13-1" title="1">string primeFactors(<span class="dt">int</span> n) {</a>
+<a class="sourceLine" id="cb13-2" title="2">  string result;</a>
+<a class="sourceLine" id="cb13-3" title="3">  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">2</span>; i * i &lt;= n; i++) {</a>
+<a class="sourceLine" id="cb13-4" title="4">    <span class="cf">if</span> (n % i == <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb13-5" title="5">      <span class="dt">int</span> count = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb13-6" title="6">      <span class="cf">while</span> (n % i == <span class="dv">0</span>) { n /= i; count++; }</a>
+<a class="sourceLine" id="cb13-7" title="7">      result += <span class="st">&quot;(&quot;</span> + to_string(i);</a>
+<a class="sourceLine" id="cb13-8" title="8">      <span class="cf">if</span> (count &gt; <span class="dv">1</span>) result += <span class="st">&quot;**&quot;</span> + to_string(count);</a>
+<a class="sourceLine" id="cb13-9" title="9">      result += <span class="st">&quot;)&quot;</span>;</a>
+<a class="sourceLine" id="cb13-10" title="10">    }</a>
+<a class="sourceLine" id="cb13-11" title="11">  }</a>
+<a class="sourceLine" id="cb13-12" title="12">  <span class="cf">if</span> (n &gt; <span class="dv">1</span>) result += <span class="st">&quot;(&quot;</span> + to_string(n) + <span class="st">&quot;)&quot;</span>;</a>
+<a class="sourceLine" id="cb13-13" title="13">  <span class="cf">return</span> result;</a>
+<a class="sourceLine" id="cb13-14" title="14">}</a></code></pre></div>
+<p><strong>GCD Euclidean</strong> (O(log min(a,b)))</p>
+<p><em>Use for finding greatest common divisor. Euclidean algorithm repeatedly replaces larger number with remainder until one becomes zero. Fundamental for fraction simplification and LCM calculation.</em></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb14-1" title="1"><span class="dt">long</span> <span class="dt">long</span> gcd(<span class="dt">long</span> <span class="dt">long</span> a, <span class="dt">long</span> <span class="dt">long</span> b) {</a>
+<a class="sourceLine" id="cb14-2" title="2">  <span class="cf">while</span> (b) {</a>
+<a class="sourceLine" id="cb14-3" title="3">    <span class="dt">long</span> <span class="dt">long</span> temp = b;</a>
+<a class="sourceLine" id="cb14-4" title="4">    b = a % b;</a>
+<a class="sourceLine" id="cb14-5" title="5">    a = temp;</a>
+<a class="sourceLine" id="cb14-6" title="6">  }</a>
+<a class="sourceLine" id="cb14-7" title="7">  <span class="cf">return</span> a;</a>
+<a class="sourceLine" id="cb14-8" title="8">}</a></code></pre></div>
+<p><strong>Modular Exponentiation</strong> (O(log n))</p>
+<p><em>Use for computing (base^exp) % mod efficiently, avoiding overflow. Square the base and halve the exponent each iteration. Essential for cryptography and large number problems.</em></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb15-1" title="1"><span class="dt">long</span> <span class="dt">long</span> modPow(<span class="dt">long</span> <span class="dt">long</span> base, <span class="dt">long</span> <span class="dt">long</span> exp, <span class="dt">long</span> <span class="dt">long</span> mod) {</a>
+<a class="sourceLine" id="cb15-2" title="2">  <span class="dt">long</span> <span class="dt">long</span> result = <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb15-3" title="3">  base %= mod;</a>
+<a class="sourceLine" id="cb15-4" title="4"></a>
+<a class="sourceLine" id="cb15-5" title="5">  <span class="cf">while</span> (exp &gt; <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb15-6" title="6">    <span class="cf">if</span> (exp % <span class="dv">2</span>) result = (result * base) % mod;</a>
+<a class="sourceLine" id="cb15-7" title="7">    base = (base * base) % mod;</a>
+<a class="sourceLine" id="cb15-8" title="8">    exp /= <span class="dv">2</span>;</a>
+<a class="sourceLine" id="cb15-9" title="9">  }</a>
+<a class="sourceLine" id="cb15-10" title="10">  <span class="cf">return</span> result;</a>
+<a class="sourceLine" id="cb15-11" title="11">}</a></code></pre></div>
+<p><strong>Pitfalls:</strong> Overflow, edge cases (0, 1, negatives), i*i &lt;= n not i &lt;= sqrt(n)</p>
+<hr />
+<h3 id="bit-manipulation"><span class="header-section-number">1.3.7</span> 7. BIT MANIPULATION</h3>
+<p><strong>Signals:</strong> - XOR properties (unique elements, pairs that cancel) - Setting/clearing/toggling bits (flags, permissions) - Counting set bits (Hamming weight, binary representation) - Problems mention “binary”, “bits”, “powers of 2” - Finding single element when others appear twice - Checking if number is power of 2 (n &amp; (n-1) == 0) - Compact representation of sets (bitmask DP) - Bitwise operations for optimization (&amp; | ^ ~ &lt;&lt; &gt;&gt;)</p>
+<p><strong>Patterns:</strong></p>
+<p><strong>XOR for Odd Occurrence</strong> (O(n))</p>
+<p><em>Use when finding unique elements where others appear in pairs. XOR has property: a ^ a = 0 and a ^ 0 = a. All pairs cancel out, leaving only the unique element.</em></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb16-1" title="1"><span class="dt">int</span> findOdd(vector&lt;<span class="dt">int</span>&gt;&amp; arr) {</a>
+<a class="sourceLine" id="cb16-2" title="2">  <span class="dt">int</span> result = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb16-3" title="3">  <span class="cf">for</span> (<span class="dt">int</span> n : arr) {</a>
+<a class="sourceLine" id="cb16-4" title="4">    result ^= n;</a>
+<a class="sourceLine" id="cb16-5" title="5">  }</a>
+<a class="sourceLine" id="cb16-6" title="6">  <span class="cf">return</span> result;</a>
+<a class="sourceLine" id="cb16-7" title="7">}</a></code></pre></div>
+<p><strong>Bit Setting</strong> (O(1))</p>
+<p><em>Use for efficient flag management or compact data storage. Bit operations are faster than array lookups. OR sets, AND with NOT clears, XOR toggles.</em></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb17-1" title="1"><span class="dt">int</span> setBit(<span class="dt">int</span> num, <span class="dt">int</span> index) {</a>
+<a class="sourceLine" id="cb17-2" title="2">  <span class="cf">return</span> num | (<span class="dv">1</span> &lt;&lt; index);</a>
+<a class="sourceLine" id="cb17-3" title="3">}</a>
+<a class="sourceLine" id="cb17-4" title="4"></a>
+<a class="sourceLine" id="cb17-5" title="5"><span class="dt">int</span> clearBit(<span class="dt">int</span> num, <span class="dt">int</span> index) {</a>
+<a class="sourceLine" id="cb17-6" title="6">  <span class="cf">return</span> num &amp; ~(<span class="dv">1</span> &lt;&lt; index);</a>
+<a class="sourceLine" id="cb17-7" title="7">}</a>
+<a class="sourceLine" id="cb17-8" title="8"></a>
+<a class="sourceLine" id="cb17-9" title="9"><span class="dt">int</span> toggleBit(<span class="dt">int</span> num, <span class="dt">int</span> index) {</a>
+<a class="sourceLine" id="cb17-10" title="10">  <span class="cf">return</span> num ^ (<span class="dv">1</span> &lt;&lt; index);</a>
+<a class="sourceLine" id="cb17-11" title="11">}</a></code></pre></div>
+<p><strong>Count Set Bits</strong> (O(log n))</p>
+<p>*Use when you need to count 1s in binary representation. Shift right and check LSB each iteration. __builtin_popcount() is optimized but understanding the manual method is important.*</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb18-1" title="1"><span class="dt">int</span> countBits(<span class="dt">int</span> n) {</a>
+<a class="sourceLine" id="cb18-2" title="2">  <span class="dt">int</span> count = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb18-3" title="3">  <span class="cf">while</span> (n) {</a>
+<a class="sourceLine" id="cb18-4" title="4">    count += n &amp; <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb18-5" title="5">    n &gt;&gt;= <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb18-6" title="6">  }</a>
+<a class="sourceLine" id="cb18-7" title="7">  <span class="cf">return</span> count;</a>
+<a class="sourceLine" id="cb18-8" title="8">  <span class="co">// Or: return __builtin_popcount(n);</span></a>
+<a class="sourceLine" id="cb18-9" title="9">}</a></code></pre></div>
+<p><strong>Pitfalls:</strong> Signed vs unsigned, overflow, negative numbers</p>
+<hr />
+<h3 id="stackqueue"><span class="header-section-number">1.3.8</span> 8. STACK/QUEUE</h3>
+<p><strong>Signals:</strong> - Matching pairs (parentheses, brackets, HTML tags) - LIFO/FIFO ordering required (most recent first vs first-come first-served) - Nearest smaller/larger element (stock span, next greater element) - Problems with “valid”, “balanced”, “matching”, “nested” - Expression evaluation (infix, postfix, prefix) - Undo/redo functionality - Function call simulation (recursion to iteration conversion)</p>
+<p><strong>Patterns:</strong></p>
+<p><strong>Stack for Matching</strong> (O(n))</p>
+<p><em>Use for matching nested structures (parentheses, brackets, tags). Push opening elements, pop and match on closing elements. Stack naturally handles LIFO ordering needed for nesting.</em></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb19-1" title="1"><span class="dt">bool</span> validParens(string str) {</a>
+<a class="sourceLine" id="cb19-2" title="2">  stack&lt;<span class="dt">char</span>&gt; s;</a>
+<a class="sourceLine" id="cb19-3" title="3">  unordered_map&lt;<span class="dt">char</span>, <span class="dt">char</span>&gt; pairs = {</a>
+<a class="sourceLine" id="cb19-4" title="4">    {<span class="ch">&#39;)&#39;</span>, <span class="ch">&#39;(&#39;</span>}, {<span class="ch">&#39;]&#39;</span>, <span class="ch">&#39;[&#39;</span>}, {<span class="ch">&#39;}&#39;</span>, <span class="ch">&#39;{&#39;</span>}</a>
+<a class="sourceLine" id="cb19-5" title="5">  };</a>
+<a class="sourceLine" id="cb19-6" title="6"></a>
+<a class="sourceLine" id="cb19-7" title="7">  <span class="cf">for</span> (<span class="dt">char</span> c : str) {</a>
+<a class="sourceLine" id="cb19-8" title="8">    <span class="cf">if</span> (c == <span class="ch">&#39;(&#39;</span> || c == <span class="ch">&#39;[&#39;</span> || c == <span class="ch">&#39;{&#39;</span>) {</a>
+<a class="sourceLine" id="cb19-9" title="9">      s.push(c);</a>
+<a class="sourceLine" id="cb19-10" title="10">    } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb19-11" title="11">      <span class="cf">if</span> (s.empty() || s.top() != pairs[c])</a>
+<a class="sourceLine" id="cb19-12" title="12">        <span class="cf">return</span> <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb19-13" title="13">      s.pop();</a>
+<a class="sourceLine" id="cb19-14" title="14">    }</a>
+<a class="sourceLine" id="cb19-15" title="15">  }</a>
+<a class="sourceLine" id="cb19-16" title="16"></a>
+<a class="sourceLine" id="cb19-17" title="17">  <span class="cf">return</span> s.empty();</a>
+<a class="sourceLine" id="cb19-18" title="18">}</a></code></pre></div>
+<p><strong>Pitfalls:</strong> Empty stack check, remaining items, wrong data structure</p>
+<hr />
+<h3 id="binary-search"><span class="header-section-number">1.3.9</span> 9. BINARY SEARCH</h3>
+<p><strong>Signals:</strong> - Sorted array or monotonic function - “Find in O(log n)” time complexity requirement - Search space divisible in half (can eliminate half each step) - Problems asking for “first/last occurrence”, “closest element” - Finding threshold/boundary (smallest x where condition is true) - Rotated sorted array variants - Binary search on answer (minimize/maximize value that satisfies constraint)</p>
+<p><strong>Patterns:</strong></p>
+<p><strong>Classic Binary Search</strong> (O(log n))</p>
+<p><em>Use on sorted arrays to find elements or boundaries. Halve search space each iteration. Use left + (right - left) / 2 to avoid overflow. Essential template for “find first/last occurrence” variants.</em></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb20-1" title="1"><span class="dt">int</span> binarySearch(vector&lt;<span class="dt">int</span>&gt;&amp; arr, <span class="dt">int</span> target) {</a>
+<a class="sourceLine" id="cb20-2" title="2">  <span class="dt">int</span> left = <span class="dv">0</span>, right = arr.size() - <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb20-3" title="3"></a>
+<a class="sourceLine" id="cb20-4" title="4">  <span class="cf">while</span> (left &lt;= right) {</a>
+<a class="sourceLine" id="cb20-5" title="5">    <span class="dt">int</span> mid = left + (right - left) / <span class="dv">2</span>;</a>
+<a class="sourceLine" id="cb20-6" title="6"></a>
+<a class="sourceLine" id="cb20-7" title="7">    <span class="cf">if</span> (arr[mid] == target) <span class="cf">return</span> mid;</a>
+<a class="sourceLine" id="cb20-8" title="8">    <span class="cf">else</span> <span class="cf">if</span> (arr[mid] &lt; target) left = mid + <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb20-9" title="9">    <span class="cf">else</span> right = mid - <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb20-10" title="10">  }</a>
+<a class="sourceLine" id="cb20-11" title="11"></a>
+<a class="sourceLine" id="cb20-12" title="12">  <span class="cf">return</span> -<span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb20-13" title="13">}</a></code></pre></div>
+<p><strong>Pitfalls:</strong> Off-by-one (use &lt;=), mid overflow, duplicates</p>
+<hr />
+<h3 id="linked-lists"><span class="header-section-number">1.3.10</span> 10. LINKED LISTS</h3>
+<p><strong>Signals:</strong> - Linear structure with pointers (next, prev references) - Cycle detection (circular references, infinite loops) - Reversing/reordering (reverse in groups, rearrange) - Problems mention “node”, “linked list”, “pointer” - Finding middle element, k-th from end - Merging sorted lists - In-place manipulation without extra space - Fast/slow pointer techniques (tortoise and hare)</p>
+<p><strong>Patterns:</strong></p>
+<p><strong>Floyd’s Cycle Detection</strong> (O(n) time, O(1) space)</p>
+<p><em>Use for detecting cycles in linked lists with constant space. Fast pointer moves twice as fast as slow. If they meet, there’s a cycle. Then traverse the cycle to measure its length.</em></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb21-1" title="1"><span class="dt">int</span> detectCycle(Node* head) {</a>
+<a class="sourceLine" id="cb21-2" title="2">  Node *slow = head, *fast = head-&gt;next;</a>
+<a class="sourceLine" id="cb21-3" title="3"></a>
+<a class="sourceLine" id="cb21-4" title="4">  <span class="cf">while</span> (fast &amp;&amp; fast-&gt;next) {</a>
+<a class="sourceLine" id="cb21-5" title="5">    slow = slow-&gt;next;</a>
+<a class="sourceLine" id="cb21-6" title="6">    fast = fast-&gt;next-&gt;next;</a>
+<a class="sourceLine" id="cb21-7" title="7"></a>
+<a class="sourceLine" id="cb21-8" title="8">    <span class="cf">if</span> (slow == fast) {</a>
+<a class="sourceLine" id="cb21-9" title="9">      <span class="co">// Cycle found, measure length</span></a>
+<a class="sourceLine" id="cb21-10" title="10">      <span class="dt">int</span> len = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb21-11" title="11">      <span class="cf">do</span> {</a>
+<a class="sourceLine" id="cb21-12" title="12">        slow = slow-&gt;next;</a>
+<a class="sourceLine" id="cb21-13" title="13">        len++;</a>
+<a class="sourceLine" id="cb21-14" title="14">      } <span class="cf">while</span> (slow != fast);</a>
+<a class="sourceLine" id="cb21-15" title="15">      <span class="cf">return</span> len;</a>
+<a class="sourceLine" id="cb21-16" title="16">    }</a>
+<a class="sourceLine" id="cb21-17" title="17">  }</a>
+<a class="sourceLine" id="cb21-18" title="18"></a>
+<a class="sourceLine" id="cb21-19" title="19">  <span class="cf">return</span> <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb21-20" title="20">}</a></code></pre></div>
+<p><strong>Pitfalls:</strong> Null pointers, losing head reference, memory leaks</p>
+<hr />
+<h2 id="part-ii-advanced-patterns"><span class="header-section-number">1.4</span> Part II: Advanced Patterns</h2>
+<hr />
+<h3 id="sliding-window"><span class="header-section-number">1.4.1</span> 11. SLIDING WINDOW</h3>
+<p><strong>Signals:</strong> - Contiguous subarray/substring problems - “Find longest/shortest substring with constraint” - “Maximum/minimum sum of subarray of size k” - “All subarrays that satisfy condition” - Problems with “consecutive”, “contiguous”, “window” - Optimization over all possible subarrays (but linear time)</p>
+<p><strong>Patterns:</strong></p>
+<p><strong>Fixed-Size Window</strong> (O(n))</p>
+<p><em>Use when window size k is given. Slide window by removing leftmost element and adding new rightmost element. Maintain window state (sum, max, count, etc.) as you slide.</em></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb22-1" title="1"><span class="dt">int</span> maxSumSubarray(vector&lt;<span class="dt">int</span>&gt;&amp; arr, <span class="dt">int</span> k) {</a>
+<a class="sourceLine" id="cb22-2" title="2">  <span class="dt">int</span> windowSum = <span class="dv">0</span>, maxSum = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb22-3" title="3"></a>
+<a class="sourceLine" id="cb22-4" title="4">  <span class="co">// Initial window</span></a>
+<a class="sourceLine" id="cb22-5" title="5">  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; k; i++) {</a>
+<a class="sourceLine" id="cb22-6" title="6">    windowSum += arr[i];</a>
+<a class="sourceLine" id="cb22-7" title="7">  }</a>
+<a class="sourceLine" id="cb22-8" title="8">  maxSum = windowSum;</a>
+<a class="sourceLine" id="cb22-9" title="9"></a>
+<a class="sourceLine" id="cb22-10" title="10">  <span class="co">// Slide window</span></a>
+<a class="sourceLine" id="cb22-11" title="11">  <span class="cf">for</span> (<span class="dt">int</span> i = k; i &lt; arr.size(); i++) {</a>
+<a class="sourceLine" id="cb22-12" title="12">    windowSum += arr[i] - arr[i - k];  <span class="co">// Add right, remove left</span></a>
+<a class="sourceLine" id="cb22-13" title="13">    maxSum = max(maxSum, windowSum);</a>
+<a class="sourceLine" id="cb22-14" title="14">  }</a>
+<a class="sourceLine" id="cb22-15" title="15"></a>
+<a class="sourceLine" id="cb22-16" title="16">  <span class="cf">return</span> maxSum;</a>
+<a class="sourceLine" id="cb22-17" title="17">}</a></code></pre></div>
+<p><strong>Variable-Size Window</strong> (O(n))</p>
+<p><em>Use when you need to find optimal window size. Expand window while valid, shrink when invalid. Two pointers: right expands, left contracts.</em></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb23-1" title="1"><span class="dt">int</span> longestSubstringKDistinct(string s, <span class="dt">int</span> k) {</a>
+<a class="sourceLine" id="cb23-2" title="2">  unordered_map&lt;<span class="dt">char</span>, <span class="dt">int</span>&gt; charCount;</a>
+<a class="sourceLine" id="cb23-3" title="3">  <span class="dt">int</span> left = <span class="dv">0</span>, maxLen = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb23-4" title="4"></a>
+<a class="sourceLine" id="cb23-5" title="5">  <span class="cf">for</span> (<span class="dt">int</span> right = <span class="dv">0</span>; right &lt; s.length(); right++) {</a>
+<a class="sourceLine" id="cb23-6" title="6">    charCount[s[right]]++;</a>
+<a class="sourceLine" id="cb23-7" title="7"></a>
+<a class="sourceLine" id="cb23-8" title="8">    <span class="co">// Shrink window while invalid</span></a>
+<a class="sourceLine" id="cb23-9" title="9">    <span class="cf">while</span> (charCount.size() &gt; k) {</a>
+<a class="sourceLine" id="cb23-10" title="10">      charCount[s[left]]--;</a>
+<a class="sourceLine" id="cb23-11" title="11">      <span class="cf">if</span> (charCount[s[left]] == <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb23-12" title="12">        charCount.erase(s[left]);</a>
+<a class="sourceLine" id="cb23-13" title="13">      }</a>
+<a class="sourceLine" id="cb23-14" title="14">      left++;</a>
+<a class="sourceLine" id="cb23-15" title="15">    }</a>
+<a class="sourceLine" id="cb23-16" title="16"></a>
+<a class="sourceLine" id="cb23-17" title="17">    maxLen = max(maxLen, right - left + <span class="dv">1</span>);</a>
+<a class="sourceLine" id="cb23-18" title="18">  }</a>
+<a class="sourceLine" id="cb23-19" title="19"></a>
+<a class="sourceLine" id="cb23-20" title="20">  <span class="cf">return</span> maxLen;</a>
+<a class="sourceLine" id="cb23-21" title="21">}</a></code></pre></div>
+<p><strong>Pitfalls:</strong> Forgetting to update window state, incorrect shrinking condition, off-by-one in window size</p>
+<hr />
+<h3 id="monotonic-stackqueue"><span class="header-section-number">1.4.2</span> 12. MONOTONIC STACK/QUEUE</h3>
+<p><strong>Signals:</strong> - “Next greater/smaller element” - “Largest rectangle in histogram” - “Sliding window maximum/minimum” - Need to maintain order while removing elements - Problems asking for “span”, “nearest larger”, “visible buildings”</p>
+<p><strong>Patterns:</strong></p>
+<p><strong>Next Greater Element</strong> (O(n))</p>
+<p><em>Use stack to track indices of elements waiting for their next greater. Pop smaller elements when you find their answer.</em></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb24-1" title="1">vector&lt;<span class="dt">int</span>&gt; nextGreaterElement(vector&lt;<span class="dt">int</span>&gt;&amp; nums) {</a>
+<a class="sourceLine" id="cb24-2" title="2">  <span class="dt">int</span> n = nums.size();</a>
+<a class="sourceLine" id="cb24-3" title="3">  vector&lt;<span class="dt">int</span>&gt; result(n, -<span class="dv">1</span>);</a>
+<a class="sourceLine" id="cb24-4" title="4">  stack&lt;<span class="dt">int</span>&gt; s;  <span class="co">// Monotonic decreasing stack (indices)</span></a>
+<a class="sourceLine" id="cb24-5" title="5"></a>
+<a class="sourceLine" id="cb24-6" title="6">  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; n; i++) {</a>
+<a class="sourceLine" id="cb24-7" title="7">    <span class="co">// Pop smaller elements - found their next greater</span></a>
+<a class="sourceLine" id="cb24-8" title="8">    <span class="cf">while</span> (!s.empty() &amp;&amp; nums[s.top()] &lt; nums[i]) {</a>
+<a class="sourceLine" id="cb24-9" title="9">      result[s.top()] = nums[i];</a>
+<a class="sourceLine" id="cb24-10" title="10">      s.pop();</a>
+<a class="sourceLine" id="cb24-11" title="11">    }</a>
+<a class="sourceLine" id="cb24-12" title="12">    s.push(i);</a>
+<a class="sourceLine" id="cb24-13" title="13">  }</a>
+<a class="sourceLine" id="cb24-14" title="14"></a>
+<a class="sourceLine" id="cb24-15" title="15">  <span class="cf">return</span> result;</a>
+<a class="sourceLine" id="cb24-16" title="16">}</a></code></pre></div>
+<p><strong>Sliding Window Maximum</strong> (O(n))</p>
+<p><em>Use deque to maintain decreasing order. Front has max, remove elements outside window, remove smaller elements from back.</em></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb25-1" title="1">vector&lt;<span class="dt">int</span>&gt; maxSlidingWindow(vector&lt;<span class="dt">int</span>&gt;&amp; nums, <span class="dt">int</span> k) {</a>
+<a class="sourceLine" id="cb25-2" title="2">  deque&lt;<span class="dt">int</span>&gt; dq;  <span class="co">// Stores indices</span></a>
+<a class="sourceLine" id="cb25-3" title="3">  vector&lt;<span class="dt">int</span>&gt; result;</a>
+<a class="sourceLine" id="cb25-4" title="4"></a>
+<a class="sourceLine" id="cb25-5" title="5">  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; nums.size(); i++) {</a>
+<a class="sourceLine" id="cb25-6" title="6">    <span class="co">// Remove elements outside window</span></a>
+<a class="sourceLine" id="cb25-7" title="7">    <span class="cf">while</span> (!dq.empty() &amp;&amp; dq.front() &lt;= i - k) {</a>
+<a class="sourceLine" id="cb25-8" title="8">      dq.pop_front();</a>
+<a class="sourceLine" id="cb25-9" title="9">    }</a>
+<a class="sourceLine" id="cb25-10" title="10"></a>
+<a class="sourceLine" id="cb25-11" title="11">    <span class="co">// Remove smaller elements (they&#39;ll never be max)</span></a>
+<a class="sourceLine" id="cb25-12" title="12">    <span class="cf">while</span> (!dq.empty() &amp;&amp; nums[dq.back()] &lt; nums[i]) {</a>
+<a class="sourceLine" id="cb25-13" title="13">      dq.pop_back();</a>
+<a class="sourceLine" id="cb25-14" title="14">    }</a>
+<a class="sourceLine" id="cb25-15" title="15"></a>
+<a class="sourceLine" id="cb25-16" title="16">    dq.push_back(i);</a>
+<a class="sourceLine" id="cb25-17" title="17"></a>
+<a class="sourceLine" id="cb25-18" title="18">    <span class="cf">if</span> (i &gt;= k - <span class="dv">1</span>) {</a>
+<a class="sourceLine" id="cb25-19" title="19">      result.push_back(nums[dq.front()]);</a>
+<a class="sourceLine" id="cb25-20" title="20">    }</a>
+<a class="sourceLine" id="cb25-21" title="21">  }</a>
+<a class="sourceLine" id="cb25-22" title="22"></a>
+<a class="sourceLine" id="cb25-23" title="23">  <span class="cf">return</span> result;</a>
+<a class="sourceLine" id="cb25-24" title="24">}</a></code></pre></div>
+<p><strong>Pitfalls:</strong> Stack stores indices not values, maintaining monotonic property, window boundary conditions</p>
+<hr />
+<h3 id="union-find-disjoint-set"><span class="header-section-number">1.4.3</span> 13. UNION FIND (DISJOINT SET)</h3>
+<p><strong>Signals:</strong> - Dynamic connectivity (are two elements connected?) - Grouping elements into sets - “Number of connected components” - “Detect cycle in undirected graph” - Problems about merging groups, friend circles, networks</p>
+<p><strong>Patterns:</strong></p>
+<p><strong>Path Compression + Union by Rank</strong> (O(α(n)) ≈ O(1))</p>
+<p><em>Use for efficiently tracking connected components. Find() with path compression, Union() with rank optimization.</em></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb26-1" title="1"><span class="kw">class</span> UnionFind {</a>
+<a class="sourceLine" id="cb26-2" title="2"><span class="kw">private</span>:</a>
+<a class="sourceLine" id="cb26-3" title="3">  vector&lt;<span class="dt">int</span>&gt; parent;</a>
+<a class="sourceLine" id="cb26-4" title="4">  vector&lt;<span class="dt">int</span>&gt; rank;</a>
+<a class="sourceLine" id="cb26-5" title="5"></a>
+<a class="sourceLine" id="cb26-6" title="6"><span class="kw">public</span>:</a>
+<a class="sourceLine" id="cb26-7" title="7">  UnionFind(<span class="dt">int</span> n) : parent(n), rank(n, <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb26-8" title="8">    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; n; i++) {</a>
+<a class="sourceLine" id="cb26-9" title="9">      parent[i] = i;</a>
+<a class="sourceLine" id="cb26-10" title="10">    }</a>
+<a class="sourceLine" id="cb26-11" title="11">  }</a>
+<a class="sourceLine" id="cb26-12" title="12"></a>
+<a class="sourceLine" id="cb26-13" title="13">  <span class="dt">int</span> find(<span class="dt">int</span> x) {</a>
+<a class="sourceLine" id="cb26-14" title="14">    <span class="cf">if</span> (parent[x] != x) {</a>
+<a class="sourceLine" id="cb26-15" title="15">      parent[x] = find(parent[x]);  <span class="co">// Path compression</span></a>
+<a class="sourceLine" id="cb26-16" title="16">    }</a>
+<a class="sourceLine" id="cb26-17" title="17">    <span class="cf">return</span> parent[x];</a>
+<a class="sourceLine" id="cb26-18" title="18">  }</a>
+<a class="sourceLine" id="cb26-19" title="19"></a>
+<a class="sourceLine" id="cb26-20" title="20">  <span class="dt">bool</span> unite(<span class="dt">int</span> x, <span class="dt">int</span> y) {</a>
+<a class="sourceLine" id="cb26-21" title="21">    <span class="dt">int</span> rootX = find(x);</a>
+<a class="sourceLine" id="cb26-22" title="22">    <span class="dt">int</span> rootY = find(y);</a>
+<a class="sourceLine" id="cb26-23" title="23"></a>
+<a class="sourceLine" id="cb26-24" title="24">    <span class="cf">if</span> (rootX == rootY) <span class="cf">return</span> <span class="kw">false</span>;  <span class="co">// Already connected</span></a>
+<a class="sourceLine" id="cb26-25" title="25"></a>
+<a class="sourceLine" id="cb26-26" title="26">    <span class="co">// Union by rank</span></a>
+<a class="sourceLine" id="cb26-27" title="27">    <span class="cf">if</span> (rank[rootX] &lt; rank[rootY]) {</a>
+<a class="sourceLine" id="cb26-28" title="28">      parent[rootX] = rootY;</a>
+<a class="sourceLine" id="cb26-29" title="29">    } <span class="cf">else</span> <span class="cf">if</span> (rank[rootX] &gt; rank[rootY]) {</a>
+<a class="sourceLine" id="cb26-30" title="30">      parent[rootY] = rootX;</a>
+<a class="sourceLine" id="cb26-31" title="31">    } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb26-32" title="32">      parent[rootY] = rootX;</a>
+<a class="sourceLine" id="cb26-33" title="33">      rank[rootX]++;</a>
+<a class="sourceLine" id="cb26-34" title="34">    }</a>
+<a class="sourceLine" id="cb26-35" title="35"></a>
+<a class="sourceLine" id="cb26-36" title="36">    <span class="cf">return</span> <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb26-37" title="37">  }</a>
+<a class="sourceLine" id="cb26-38" title="38"></a>
+<a class="sourceLine" id="cb26-39" title="39">  <span class="dt">bool</span> connected(<span class="dt">int</span> x, <span class="dt">int</span> y) {</a>
+<a class="sourceLine" id="cb26-40" title="40">    <span class="cf">return</span> find(x) == find(y);</a>
+<a class="sourceLine" id="cb26-41" title="41">  }</a>
+<a class="sourceLine" id="cb26-42" title="42">};</a></code></pre></div>
+<p><strong>Pitfalls:</strong> Forgetting path compression, not using union by rank, incorrect cycle detection</p>
+<hr />
+<h3 id="trie-prefix-tree"><span class="header-section-number">1.4.4</span> 14. TRIE (PREFIX TREE)</h3>
+<p><strong>Signals:</strong> - Prefix matching, autocomplete - “Words starting with…” - “Search for word with wildcards” - Dictionary operations (insert, search, startsWith) - Multiple string searches with common prefixes</p>
+<p><strong>Patterns:</strong></p>
+<p><strong>Standard Trie</strong> (Insert: O(m), Search: O(m) where m = word length)</p>
+<p><em>Use for efficient prefix operations. Each node has children for each character.</em></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb27-1" title="1"><span class="kw">class</span> TrieNode {</a>
+<a class="sourceLine" id="cb27-2" title="2"><span class="kw">public</span>:</a>
+<a class="sourceLine" id="cb27-3" title="3">  unordered_map&lt;<span class="dt">char</span>, TrieNode*&gt; children;</a>
+<a class="sourceLine" id="cb27-4" title="4">  <span class="dt">bool</span> isEndOfWord = <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb27-5" title="5">};</a>
+<a class="sourceLine" id="cb27-6" title="6"></a>
+<a class="sourceLine" id="cb27-7" title="7"><span class="kw">class</span> Trie {</a>
+<a class="sourceLine" id="cb27-8" title="8"><span class="kw">private</span>:</a>
+<a class="sourceLine" id="cb27-9" title="9">  TrieNode* root;</a>
+<a class="sourceLine" id="cb27-10" title="10"></a>
+<a class="sourceLine" id="cb27-11" title="11"><span class="kw">public</span>:</a>
+<a class="sourceLine" id="cb27-12" title="12">  Trie() {</a>
+<a class="sourceLine" id="cb27-13" title="13">    root = <span class="kw">new</span> TrieNode();</a>
+<a class="sourceLine" id="cb27-14" title="14">  }</a>
+<a class="sourceLine" id="cb27-15" title="15"></a>
+<a class="sourceLine" id="cb27-16" title="16">  <span class="dt">void</span> insert(string word) {</a>
+<a class="sourceLine" id="cb27-17" title="17">    TrieNode* node = root;</a>
+<a class="sourceLine" id="cb27-18" title="18">    <span class="cf">for</span> (<span class="dt">char</span> c : word) {</a>
+<a class="sourceLine" id="cb27-19" title="19">      <span class="cf">if</span> (!node-&gt;children.count(c)) {</a>
+<a class="sourceLine" id="cb27-20" title="20">        node-&gt;children[c] = <span class="kw">new</span> TrieNode();</a>
+<a class="sourceLine" id="cb27-21" title="21">      }</a>
+<a class="sourceLine" id="cb27-22" title="22">      node = node-&gt;children[c];</a>
+<a class="sourceLine" id="cb27-23" title="23">    }</a>
+<a class="sourceLine" id="cb27-24" title="24">    node-&gt;isEndOfWord = <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb27-25" title="25">  }</a>
+<a class="sourceLine" id="cb27-26" title="26"></a>
+<a class="sourceLine" id="cb27-27" title="27">  <span class="dt">bool</span> search(string word) {</a>
+<a class="sourceLine" id="cb27-28" title="28">    TrieNode* node = root;</a>
+<a class="sourceLine" id="cb27-29" title="29">    <span class="cf">for</span> (<span class="dt">char</span> c : word) {</a>
+<a class="sourceLine" id="cb27-30" title="30">      <span class="cf">if</span> (!node-&gt;children.count(c)) <span class="cf">return</span> <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb27-31" title="31">      node = node-&gt;children[c];</a>
+<a class="sourceLine" id="cb27-32" title="32">    }</a>
+<a class="sourceLine" id="cb27-33" title="33">    <span class="cf">return</span> node-&gt;isEndOfWord;</a>
+<a class="sourceLine" id="cb27-34" title="34">  }</a>
+<a class="sourceLine" id="cb27-35" title="35"></a>
+<a class="sourceLine" id="cb27-36" title="36">  <span class="dt">bool</span> startsWith(string prefix) {</a>
+<a class="sourceLine" id="cb27-37" title="37">    TrieNode* node = root;</a>
+<a class="sourceLine" id="cb27-38" title="38">    <span class="cf">for</span> (<span class="dt">char</span> c : prefix) {</a>
+<a class="sourceLine" id="cb27-39" title="39">      <span class="cf">if</span> (!node-&gt;children.count(c)) <span class="cf">return</span> <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb27-40" title="40">      node = node-&gt;children[c];</a>
+<a class="sourceLine" id="cb27-41" title="41">    }</a>
+<a class="sourceLine" id="cb27-42" title="42">    <span class="cf">return</span> <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb27-43" title="43">  }</a>
+<a class="sourceLine" id="cb27-44" title="44">};</a></code></pre></div>
+<p><strong>Pitfalls:</strong> Memory leaks, isEndOfWord vs children existence, case sensitivity</p>
+<hr />
+<h3 id="topological-sort"><span class="header-section-number">1.4.5</span> 15. TOPOLOGICAL SORT</h3>
+<p><strong>Signals:</strong> - Task scheduling with dependencies - “Course prerequisites” problems - Directed Acyclic Graph (DAG) ordering - “Detect cycle in directed graph” - Build order, compilation order</p>
+<p><strong>Patterns:</strong></p>
+<p><strong>Kahn’s Algorithm (BFS)</strong> (O(V + E))</p>
+<p><em>Use for finding valid ordering of tasks. Track in-degrees, process nodes with in-degree 0.</em></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb28-1" title="1">vector&lt;<span class="dt">int</span>&gt; topologicalSort(<span class="dt">int</span> n, vector&lt;pair&lt;<span class="dt">int</span>,<span class="dt">int</span>&gt;&gt;&amp; edges) {</a>
+<a class="sourceLine" id="cb28-2" title="2">  vector&lt;vector&lt;<span class="dt">int</span>&gt;&gt; graph(n);</a>
+<a class="sourceLine" id="cb28-3" title="3">  vector&lt;<span class="dt">int</span>&gt; inDegree(n, <span class="dv">0</span>);</a>
+<a class="sourceLine" id="cb28-4" title="4"></a>
+<a class="sourceLine" id="cb28-5" title="5">  <span class="co">// Build graph</span></a>
+<a class="sourceLine" id="cb28-6" title="6">  <span class="cf">for</span> (<span class="kw">auto</span>&amp; [from, to] : edges) {</a>
+<a class="sourceLine" id="cb28-7" title="7">    graph[from].push_back(to);</a>
+<a class="sourceLine" id="cb28-8" title="8">    inDegree[to]++;</a>
+<a class="sourceLine" id="cb28-9" title="9">  }</a>
+<a class="sourceLine" id="cb28-10" title="10"></a>
+<a class="sourceLine" id="cb28-11" title="11">  <span class="co">// Queue nodes with no dependencies</span></a>
+<a class="sourceLine" id="cb28-12" title="12">  queue&lt;<span class="dt">int</span>&gt; q;</a>
+<a class="sourceLine" id="cb28-13" title="13">  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; n; i++) {</a>
+<a class="sourceLine" id="cb28-14" title="14">    <span class="cf">if</span> (inDegree[i] == <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb28-15" title="15">      q.push(i);</a>
+<a class="sourceLine" id="cb28-16" title="16">    }</a>
+<a class="sourceLine" id="cb28-17" title="17">  }</a>
+<a class="sourceLine" id="cb28-18" title="18"></a>
+<a class="sourceLine" id="cb28-19" title="19">  vector&lt;<span class="dt">int</span>&gt; result;</a>
+<a class="sourceLine" id="cb28-20" title="20">  <span class="cf">while</span> (!q.empty()) {</a>
+<a class="sourceLine" id="cb28-21" title="21">    <span class="dt">int</span> node = q.front();</a>
+<a class="sourceLine" id="cb28-22" title="22">    q.pop();</a>
+<a class="sourceLine" id="cb28-23" title="23">    result.push_back(node);</a>
+<a class="sourceLine" id="cb28-24" title="24"></a>
+<a class="sourceLine" id="cb28-25" title="25">    <span class="co">// Reduce in-degree of neighbors</span></a>
+<a class="sourceLine" id="cb28-26" title="26">    <span class="cf">for</span> (<span class="dt">int</span> neighbor : graph[node]) {</a>
+<a class="sourceLine" id="cb28-27" title="27">      inDegree[neighbor]--;</a>
+<a class="sourceLine" id="cb28-28" title="28">      <span class="cf">if</span> (inDegree[neighbor] == <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb28-29" title="29">        q.push(neighbor);</a>
+<a class="sourceLine" id="cb28-30" title="30">      }</a>
+<a class="sourceLine" id="cb28-31" title="31">    }</a>
+<a class="sourceLine" id="cb28-32" title="32">  }</a>
+<a class="sourceLine" id="cb28-33" title="33"></a>
+<a class="sourceLine" id="cb28-34" title="34">  <span class="co">// Check for cycle</span></a>
+<a class="sourceLine" id="cb28-35" title="35">  <span class="cf">if</span> (result.size() != n) {</a>
+<a class="sourceLine" id="cb28-36" title="36">    <span class="cf">return</span> {};  <span class="co">// Cycle detected</span></a>
+<a class="sourceLine" id="cb28-37" title="37">  }</a>
+<a class="sourceLine" id="cb28-38" title="38"></a>
+<a class="sourceLine" id="cb28-39" title="39">  <span class="cf">return</span> result;</a>
+<a class="sourceLine" id="cb28-40" title="40">}</a></code></pre></div>
+<p><strong>DFS Approach</strong> (O(V + E))</p>
+<p><em>Alternative using DFS. Detect cycles with three states: unvisited, visiting, visited.</em></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb29-1" title="1"><span class="dt">bool</span> dfsTopoSort(<span class="dt">int</span> node, vector&lt;vector&lt;<span class="dt">int</span>&gt;&gt;&amp; graph,</a>
+<a class="sourceLine" id="cb29-2" title="2">                 vector&lt;<span class="dt">int</span>&gt;&amp; state, vector&lt;<span class="dt">int</span>&gt;&amp; result) {</a>
+<a class="sourceLine" id="cb29-3" title="3">  state[node] = <span class="dv">1</span>;  <span class="co">// Visiting</span></a>
+<a class="sourceLine" id="cb29-4" title="4"></a>
+<a class="sourceLine" id="cb29-5" title="5">  <span class="cf">for</span> (<span class="dt">int</span> neighbor : graph[node]) {</a>
+<a class="sourceLine" id="cb29-6" title="6">    <span class="cf">if</span> (state[neighbor] == <span class="dv">1</span>) <span class="cf">return</span> <span class="kw">false</span>;  <span class="co">// Cycle</span></a>
+<a class="sourceLine" id="cb29-7" title="7">    <span class="cf">if</span> (state[neighbor] == <span class="dv">0</span> &amp;&amp; !dfsTopoSort(neighbor, graph, state, result)) {</a>
+<a class="sourceLine" id="cb29-8" title="8">      <span class="cf">return</span> <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb29-9" title="9">    }</a>
+<a class="sourceLine" id="cb29-10" title="10">  }</a>
+<a class="sourceLine" id="cb29-11" title="11"></a>
+<a class="sourceLine" id="cb29-12" title="12">  state[node] = <span class="dv">2</span>;  <span class="co">// Visited</span></a>
+<a class="sourceLine" id="cb29-13" title="13">  result.push_back(node);</a>
+<a class="sourceLine" id="cb29-14" title="14">  <span class="cf">return</span> <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb29-15" title="15">}</a></code></pre></div>
+<p><strong>Pitfalls:</strong> Detecting cycles, handling disconnected components, reversing DFS result</p>
+<hr />
+<h2 id="part-iii-interview-strategy-1"><span class="header-section-number">1.5</span> Part III: Interview Strategy</h2>
+<hr />
+<h2 id="quick-decision-tree"><span class="header-section-number">1.6</span> Quick Decision Tree</h2>
+<pre><code>1. Can sort help? → Array/String or Greedy
+2. Tree/Graph structure? → DFS/BFS
+3. &quot;Optimal&quot; + overlapping? → DP
+4. Generate all? → Backtracking
+5. Intervals/scheduling? → Greedy + Sort
+6. Numbers/divisibility? → Math
+7. Find unique/XOR? → Bit Manipulation
+8. Matching/nesting? → Stack
+9. Sorted search? → Binary Search
+10. Pointers/cycles? → Linked List (Floyd&#39;s)</code></pre>
+<hr />
+<h2 id="minute-strategy"><span class="header-section-number">1.7</span> 20-Minute Strategy</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Time</th>
+<th>Task</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0-2 min</td>
+<td>Identify pattern from description</td>
+</tr>
+<tr class="even">
+<td>2-5 min</td>
+<td>Sketch approach, consider edge cases</td>
+</tr>
+<tr class="odd">
+<td>5-15 min</td>
+<td>Code implementation</td>
+</tr>
+<tr class="even">
+<td>15-18 min</td>
+<td>Test with examples</td>
+</tr>
+<tr class="odd">
+<td>18-20 min</td>
+<td>Debug and optimize</td>
+</tr>
+</tbody>
+</table>
+<h3 id="red-flags-rethink-approach"><span class="header-section-number">1.7.1</span> Red Flags (Rethink approach)</h3>
+<ul>
+<li>Coding takes &gt;10 minutes → wrong pattern</li>
+<li>Need &gt;3 nested loops → reconsider</li>
+<li>Tests fail mysteriously → check edge cases first</li>
+</ul>
+<hr />
+<h2 id="complexity-cheat-sheet"><span class="header-section-number">1.8</span> Complexity Cheat Sheet</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Pattern</th>
+<th>Time</th>
+<th>Space</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Two Pointers</td>
+<td>O(n)</td>
+<td>O(1)</td>
+</tr>
+<tr class="even">
+<td>Binary Search</td>
+<td>O(log n)</td>
+<td>O(1)</td>
+</tr>
+<tr class="odd">
+<td>Sorting</td>
+<td>O(n log n)</td>
+<td>O(1) to O(n)</td>
+</tr>
+<tr class="even">
+<td>DFS/BFS</td>
+<td>O(V+E)</td>
+<td>O(V)</td>
+</tr>
+<tr class="odd">
+<td>DP 1D</td>
+<td>O(n)</td>
+<td>O(n)</td>
+</tr>
+<tr class="even">
+<td>DP 2D</td>
+<td>O(n×m)</td>
+<td>O(n×m)</td>
+</tr>
+<tr class="odd">
+<td>Backtracking</td>
+<td>O(2^n) to O(n!)</td>
+<td>O(n)</td>
+</tr>
+<tr class="even">
+<td>Heap ops</td>
+<td>O(log n)</td>
+<td>O(n)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="common-edge-cases-checklist"><span class="header-section-number">1.9</span> Common Edge Cases Checklist</h2>
+<ul>
+<li>[ ] Empty input ([], "", null)</li>
+<li>[ ] Single element</li>
+<li>[ ] All same elements</li>
+<li>[ ] Already sorted/optimal</li>
+<li>[ ] Duplicates</li>
+<li>[ ] Negative numbers</li>
+<li>[ ] Zero</li>
+<li>[ ] Maximum/minimum values</li>
+<li>[ ] Odd/even length</li>
+<li>[ ] Overflow potential</li>
+</ul>
+<hr />
+<h2 id="part-iv-interview-excellence-1"><span class="header-section-number">1.10</span> Part IV: Interview Excellence</h2>
+<hr />
+<h2 id="interview-communication-framework"><span class="header-section-number">1.11</span> Interview Communication Framework</h2>
+<h3 id="the-5-step-method"><span class="header-section-number">1.11.1</span> The 5-Step Method</h3>
+<p><strong>1. CLARIFY (2 min)</strong> Ask these questions EVERY time: - “What are the input constraints?” (array size, value ranges) - “Can the input be empty or null?” - “Are there duplicates?” - “Is the input sorted?” (if array/list) - “What should I return for edge cases?” - “Are there any performance requirements?”</p>
+<p><strong>2. EXAMPLES (1 min)</strong> Walk through examples: - Normal case - Edge case (empty, single element) - Tricky case (duplicates, negatives)</p>
+<p><strong>3. APPROACH (2 min)</strong> Think out loud: - “I see this is a [pattern name] problem because…” - “My initial thought is [brute force approach]” - “That would be O(n²), but I can optimize using [data structure/algorithm]” - “Let me sketch the algorithm…”</p>
+<p><strong>4. COMPLEXITY ANALYSIS (30 sec)</strong> BEFORE coding: - “Time complexity will be O(…) because…” - “Space complexity will be O(…) for…” - Get interviewer buy-in: “Does this sound good?”</p>
+<p><strong>5. CODE (10-15 min)</strong> While coding: - Announce what you’re doing: “Now I’ll handle the edge case…” - Use meaningful variable names - Add comments for tricky parts - Walk through with an example as you go</p>
+<p><strong>6. TEST (2-3 min)</strong> - Test with your examples - Think of edge cases: “What if the array is empty?” - Dry run through the code line by line</p>
+<h3 id="communication-templates"><span class="header-section-number">1.11.2</span> Communication Templates</h3>
+<p><strong>Starting template:</strong></p>
+<pre><code>&quot;Let me make sure I understand the problem correctly...
+[Restate in your own words]
+And the constraints are...
+[List constraints]
+For edge cases, should I...
+[Ask about edge cases]
+&quot;</code></pre>
+<p><strong>Transitioning to solution:</strong></p>
+<pre><code>&quot;I recognize this as a [pattern] problem.
+The brute force would be [approach] with [complexity].
+But we can optimize this to [complexity] using [technique].
+Let me walk through my approach...&quot;</code></pre>
+<p><strong>When stuck:</strong></p>
+<pre><code>&quot;I&#39;m thinking through a few approaches:
+1. [Approach A] - [pros/cons]
+2. [Approach B] - [pros/cons]
+I&#39;m leaning toward [choice] because...
+What do you think?&quot;</code></pre>
+<hr />
+<h2 id="pattern-recognition-shortcuts"><span class="header-section-number">1.12</span> Pattern Recognition Shortcuts</h2>
+<h3 id="if-you-see-this-think-that"><span class="header-section-number">1.12.1</span> “If You See This… Think That”</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Problem Phrase</th>
+<th>Likely Pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“Subarray with sum/length”</td>
+<td>Sliding Window, Prefix Sum</td>
+</tr>
+<tr class="even">
+<td>“Longest substring without repeating”</td>
+<td>Sliding Window + HashMap</td>
+</tr>
+<tr class="odd">
+<td>“Next greater/smaller”</td>
+<td>Monotonic Stack</td>
+</tr>
+<tr class="even">
+<td>“K closest/largest/smallest”</td>
+<td>Heap (Priority Queue)</td>
+</tr>
+<tr class="odd">
+<td>“Shortest path” (unweighted)</td>
+<td>BFS</td>
+</tr>
+<tr class="even">
+<td>“All paths”, “Generate all”</td>
+<td>Backtracking/DFS</td>
+</tr>
+<tr class="odd">
+<td>“Number of ways to…”</td>
+<td>DP (counting)</td>
+</tr>
+<tr class="even">
+<td>“Minimum/Maximum cost to…”</td>
+<td>DP (optimization)</td>
+</tr>
+<tr class="odd">
+<td>“Connected components”</td>
+<td>Union Find or DFS</td>
+</tr>
+<tr class="even">
+<td>“Prerequisites/dependencies”</td>
+<td>Topological Sort</td>
+</tr>
+<tr class="odd">
+<td>“Substring/prefix matching”</td>
+<td>Trie</td>
+</tr>
+<tr class="even">
+<td>“Palindrome substring”</td>
+<td>Expand from center or DP</td>
+</tr>
+<tr class="odd">
+<td>“Two sum / Three sum”</td>
+<td>HashMap or Two Pointers</td>
+</tr>
+<tr class="even">
+<td>“Meeting rooms”</td>
+<td>Interval Merging</td>
+</tr>
+<tr class="odd">
+<td>“Cycle detection”</td>
+<td>Floyd’s or Union Find</td>
+</tr>
+</tbody>
+</table>
+<h3 id="multiple-approaches-ranking"><span class="header-section-number">1.12.2</span> Multiple Approaches Ranking</h3>
+<p>For many problems, multiple solutions exist. Rank by:</p>
+<p><strong>Example: Two Sum</strong> 1. ✅ <strong>Optimal:</strong> HashMap - O(n) time, O(n) space 2. ⚠️ <strong>Acceptable:</strong> Sort + Two Pointers - O(n log n) time, O(1) space 3. ❌ <strong>Too Slow:</strong> Brute Force - O(n²) time, O(1) space</p>
+<p><strong>Example: Finding Duplicates</strong> 1. ✅ <strong>Optimal:</strong> HashSet - O(n) time, O(n) space 2. ✅ <strong>Space-optimized:</strong> Sort - O(n log n) time, O(1) space 3. ✅ <strong>Clever:</strong> In-place marking (if allowed to modify) - O(n) time, O(1) space</p>
+<hr />
+<h2 id="c-stl-quick-reference"><span class="header-section-number">1.13</span> C++ STL Quick Reference</h2>
+<h3 id="container-selection"><span class="header-section-number">1.13.1</span> Container Selection</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Need</th>
+<th>Use</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Random access</td>
+<td><code>vector</code></td>
+<td>O(1) access, cache-friendly</td>
+</tr>
+<tr class="even">
+<td>Insert/delete at ends</td>
+<td><code>deque</code></td>
+<td>O(1) at both ends</td>
+</tr>
+<tr class="odd">
+<td>Fast insert/delete anywhere</td>
+<td><code>list</code></td>
+<td>O(1) insert/delete, slow access</td>
+</tr>
+<tr class="even">
+<td>Unique elements</td>
+<td><code>unordered_set</code></td>
+<td>O(1) average search</td>
+</tr>
+<tr class="odd">
+<td>Ordered elements</td>
+<td><code>set</code></td>
+<td>O(log n) search, sorted</td>
+</tr>
+<tr class="even">
+<td>Key-value pairs</td>
+<td><code>unordered_map</code></td>
+<td>O(1) average access</td>
+</tr>
+<tr class="odd">
+<td>Ordered key-value</td>
+<td><code>map</code></td>
+<td>O(log n) access, sorted keys</td>
+</tr>
+<tr class="even">
+<td>Min/Max element</td>
+<td><code>priority_queue</code></td>
+<td>O(1) access, O(log n) insert</td>
+</tr>
+<tr class="odd">
+<td>FIFO</td>
+<td><code>queue</code></td>
+<td>O(1) push/pop</td>
+</tr>
+<tr class="even">
+<td>LIFO</td>
+<td><code>stack</code></td>
+<td>O(1) push/pop</td>
+</tr>
+</tbody>
+</table>
+<h3 id="common-stl-patterns"><span class="header-section-number">1.13.2</span> Common STL Patterns</h3>
+<p><strong>Heap Operations:</strong></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb34-1" title="1">priority_queue&lt;<span class="dt">int</span>&gt; maxHeap;  <span class="co">// Max heap (default)</span></a>
+<a class="sourceLine" id="cb34-2" title="2">priority_queue&lt;<span class="dt">int</span>, vector&lt;<span class="dt">int</span>&gt;, greater&lt;<span class="dt">int</span>&gt;&gt; minHeap;  <span class="co">// Min heap</span></a>
+<a class="sourceLine" id="cb34-3" title="3"></a>
+<a class="sourceLine" id="cb34-4" title="4"><span class="co">// Custom comparator</span></a>
+<a class="sourceLine" id="cb34-5" title="5"><span class="kw">auto</span> cmp = [](<span class="dt">int</span> a, <span class="dt">int</span> b) { <span class="cf">return</span> a &gt; b; };</a>
+<a class="sourceLine" id="cb34-6" title="6">priority_queue&lt;<span class="dt">int</span>, vector&lt;<span class="dt">int</span>&gt;, <span class="kw">decltype</span>(cmp)&gt; pq(cmp);</a></code></pre></div>
+<p><strong>Sorting with Comparator:</strong></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb35-1" title="1">sort(v.begin(), v.end());  <span class="co">// Ascending</span></a>
+<a class="sourceLine" id="cb35-2" title="2">sort(v.begin(), v.end(), greater&lt;<span class="dt">int</span>&gt;());  <span class="co">// Descending</span></a>
+<a class="sourceLine" id="cb35-3" title="3"></a>
+<a class="sourceLine" id="cb35-4" title="4"><span class="co">// Custom</span></a>
+<a class="sourceLine" id="cb35-5" title="5">sort(v.begin(), v.end(), [](<span class="dt">int</span> a, <span class="dt">int</span> b) {</a>
+<a class="sourceLine" id="cb35-6" title="6">  <span class="cf">return</span> a &gt; b;  <span class="co">// Your logic</span></a>
+<a class="sourceLine" id="cb35-7" title="7">});</a></code></pre></div>
+<p><strong>HashMap Patterns:</strong></p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb36-1" title="1">unordered_map&lt;<span class="dt">int</span>, <span class="dt">int</span>&gt; map;</a>
+<a class="sourceLine" id="cb36-2" title="2"></a>
+<a class="sourceLine" id="cb36-3" title="3"><span class="co">// Check existence</span></a>
+<a class="sourceLine" id="cb36-4" title="4"><span class="cf">if</span> (map.count(key))  <span class="co">// Preferred for checking</span></a>
+<a class="sourceLine" id="cb36-5" title="5"><span class="cf">if</span> (map.find(key) != map.end())  <span class="co">// Returns iterator</span></a>
+<a class="sourceLine" id="cb36-6" title="6"></a>
+<a class="sourceLine" id="cb36-7" title="7"><span class="co">// Safe access</span></a>
+<a class="sourceLine" id="cb36-8" title="8">map[key]++;  <span class="co">// Creates key with 0 if not exists</span></a>
+<a class="sourceLine" id="cb36-9" title="9">map.at(key);  <span class="co">// Throws exception if not exists</span></a></code></pre></div>
+<p><strong>Set Operations:</strong></p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb37-1" title="1">unordered_set&lt;<span class="dt">int</span>&gt; s;</a>
+<a class="sourceLine" id="cb37-2" title="2">s.insert(x);</a>
+<a class="sourceLine" id="cb37-3" title="3">s.erase(x);</a>
+<a class="sourceLine" id="cb37-4" title="4">s.count(x);  <span class="co">// 0 or 1</span></a>
+<a class="sourceLine" id="cb37-5" title="5"></a>
+<a class="sourceLine" id="cb37-6" title="6"><span class="co">// Iteration</span></a>
+<a class="sourceLine" id="cb37-7" title="7"><span class="cf">for</span> (<span class="dt">int</span> x : s) { }</a></code></pre></div>
+<h3 id="common-gotchas"><span class="header-section-number">1.13.3</span> Common Gotchas</h3>
+<p>❌ <strong>Wrong:</strong></p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb38-1" title="1">vector&lt;<span class="dt">int</span>&gt; v;</a>
+<a class="sourceLine" id="cb38-2" title="2"><span class="dt">int</span> x = v[<span class="dv">0</span>];  <span class="co">// Undefined if empty</span></a></code></pre></div>
+<p>✅ <strong>Right:</strong></p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb39-1" title="1"><span class="cf">if</span> (!v.empty()) <span class="dt">int</span> x = v[<span class="dv">0</span>];</a></code></pre></div>
+<p>❌ <strong>Wrong:</strong></p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb40-1" title="1"><span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; v.size() - <span class="dv">1</span>; i++)  <span class="co">// Underflow if size() == 0</span></a></code></pre></div>
+<p>✅ <strong>Right:</strong></p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb41-1" title="1"><span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i + <span class="dv">1</span> &lt; v.size(); i++)</a>
+<a class="sourceLine" id="cb41-2" title="2"><span class="co">// or</span></a>
+<a class="sourceLine" id="cb41-3" title="3"><span class="cf">if</span> (v.size() &gt;= <span class="dv">1</span>) {</a>
+<a class="sourceLine" id="cb41-4" title="4">  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; v.size() - <span class="dv">1</span>; i++)</a>
+<a class="sourceLine" id="cb41-5" title="5">}</a></code></pre></div>
+<p>❌ <strong>Wrong:</strong></p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb42-1" title="1">map[key]++;  <span class="co">// Modifies map even if just checking</span></a></code></pre></div>
+<p>✅ <strong>Right:</strong></p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb43-1" title="1"><span class="cf">if</span> (map.count(key)) map[key]++;</a>
+<a class="sourceLine" id="cb43-2" title="2"><span class="cf">else</span> map[key] = <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb43-3" title="3"><span class="co">// or</span></a>
+<a class="sourceLine" id="cb43-4" title="4">map[key]++;  <span class="co">// If you want 0 initialization</span></a></code></pre></div>
+<hr />
+<h2 id="debugging-in-interviews"><span class="header-section-number">1.14</span> Debugging in Interviews</h2>
+<h3 id="print-statement-strategy"><span class="header-section-number">1.14.1</span> Print Statement Strategy</h3>
+<div class="sourceCode" id="cb44"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb44-1" title="1"><span class="co">// Strategic prints</span></a>
+<a class="sourceLine" id="cb44-2" title="2">cout &lt;&lt; <span class="st">&quot;Input: &quot;</span>; printVector(nums); cout &lt;&lt; endl;</a>
+<a class="sourceLine" id="cb44-3" title="3">cout &lt;&lt; <span class="st">&quot;After step 1: &quot;</span> &lt;&lt; variable &lt;&lt; endl;</a>
+<a class="sourceLine" id="cb44-4" title="4">cout &lt;&lt; <span class="st">&quot;Loop i=&quot;</span> &lt;&lt; i &lt;&lt; <span class="st">&quot; j=&quot;</span> &lt;&lt; j &lt;&lt; <span class="st">&quot; sum=&quot;</span> &lt;&lt; sum &lt;&lt; endl;</a></code></pre></div>
+<h3 id="trace-through-method"><span class="header-section-number">1.14.2</span> Trace Through Method</h3>
+<p>Walk through code with example:</p>
+<pre><code>&quot;Let me trace through with [1, 2, 3]:
+- i=0, nums[0]=1, sum=1
+- i=1, nums[1]=2, sum=3
+- i=2, nums[2]=3, sum=6
+- Return 6 ✓&quot;</code></pre>
+<h3 id="common-bugs-by-pattern"><span class="header-section-number">1.14.3</span> Common Bugs by Pattern</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Pattern</th>
+<th>Common Bug</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Array</td>
+<td>Off-by-one, empty array, index out of bounds</td>
+</tr>
+<tr class="even">
+<td>Sliding Window</td>
+<td>Not updating window state, wrong shrink condition</td>
+</tr>
+<tr class="odd">
+<td>DFS/BFS</td>
+<td>Not marking visited, infinite loop</td>
+</tr>
+<tr class="even">
+<td>DP</td>
+<td>Wrong base case, iteration order, not initializing</td>
+</tr>
+<tr class="odd">
+<td>Binary Search</td>
+<td>Infinite loop (mid calculation), &lt;= vs &lt;</td>
+</tr>
+<tr class="even">
+<td>Backtracking</td>
+<td>Forgetting to backtrack, not pruning</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="practice-roadmap"><span class="header-section-number">1.15</span> Practice Roadmap</h2>
+<h3 id="master-these-15-problems"><span class="header-section-number">1.15.1</span> Master These 15 Problems</h3>
+<p>Learn these patterns, and you’ll recognize 80% of interviews:</p>
+<ol type="1">
+<li><strong>Two Sum</strong> (HashMap pattern)</li>
+<li><strong>Valid Parentheses</strong> (Stack pattern)</li>
+<li><strong>Reverse Linked List</strong> (Pointer manipulation)</li>
+<li><strong>Maximum Subarray</strong> (Kadane’s algorithm)</li>
+<li><strong>Climbing Stairs</strong> (Basic DP)</li>
+<li><strong>Binary Tree Level Order</strong> (BFS pattern)</li>
+<li><strong>Longest Substring Without Repeating</strong> (Sliding Window)</li>
+<li><strong>Number of Islands</strong> (DFS/BFS on grid)</li>
+<li><strong>Coin Change</strong> (DP pattern)</li>
+<li><strong>Merge Intervals</strong> (Interval pattern)</li>
+<li><strong>Top K Frequent Elements</strong> (Heap pattern)</li>
+<li><strong>Course Schedule</strong> (Topological Sort)</li>
+<li><strong>Word Search</strong> (Backtracking)</li>
+<li><strong>LRU Cache</strong> (HashMap + DLL)</li>
+<li><strong>Binary Search</strong> (Search pattern)</li>
+</ol>
+<h3 id="progression-path"><span class="header-section-number">1.15.2</span> Progression Path</h3>
+<p><strong>Week 1-2: Foundations</strong> - Arrays, Strings, HashMaps - Easy problems only - Focus on: Two Sum, Valid Anagram, Contains Duplicate</p>
+<p><strong>Week 3-4: Core Patterns</strong> - Trees, Linked Lists, Stack/Queue - Mix of Easy/Medium - Focus on: Valid Parentheses, Binary Tree Traversals, Reverse LL</p>
+<p><strong>Week 5-6: Advanced Patterns</strong> - DP, Sliding Window, Greedy - Medium problems - Focus on: Climbing Stairs, Max Subarray, Longest Substring</p>
+<p><strong>Week 7-8: Speed &amp; Integration</strong> - All patterns mixed - Timed practice (20 min per problem) - Mock interviews</p>
+<hr />
+<h2 id="system-design-context"><span class="header-section-number">1.16</span> System Design Context</h2>
+<p>These algorithms power real systems:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Algorithm</th>
+<th>Real-World Use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>LRU Cache (HashMap + DLL)</td>
+<td>Redis, CPU caches, browser caching</td>
+</tr>
+<tr class="even">
+<td>Trie</td>
+<td>Autocomplete, spell checkers, IP routing</td>
+</tr>
+<tr class="odd">
+<td>Union Find</td>
+<td>Network connectivity, image processing</td>
+</tr>
+<tr class="even">
+<td>Topological Sort</td>
+<td>Build systems, task schedulers</td>
+</tr>
+<tr class="odd">
+<td>Dijkstra/BFS</td>
+<td>Google Maps, network routing</td>
+</tr>
+<tr class="even">
+<td>Sliding Window</td>
+<td>Rate limiting, log analysis</td>
+</tr>
+<tr class="odd">
+<td>Bloom Filter</td>
+<td>Database query optimization</td>
+</tr>
+<tr class="even">
+<td>Consistent Hashing</td>
+<td>Load balancers, distributed caches</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interview Tip:</strong> Mention real-world applications when relevant: “This is similar to how an LRU cache works in Redis…”</p>
+</body>
+</html>
