@@ -102,6 +102,7 @@ _To be filled as you progress_
 ## Resources
 - R*_Principals.md - Your Rust style guide
 - MUSASHI_COACH.md - Context for mock interviews
+- CODEX_INTERVIEW_DRILL_COACH.md - Standing drill-coach instructions for Codex sessions
 - templates/ - Starter code templates
 
 ---

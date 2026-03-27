@@ -2,6 +2,11 @@
 
 Welcome to "Algorithmic Insights: A Comprehensive Compendium of Mathematics and Computer Science Concepts from Coding Challenges." This compendium aims to provide an insightful exploration into the world of algorithmic problem-solving, intertwining the elegance of mathematics with the practicality of computer science. Each section delves into key concepts, offering both theoretical understanding and practical applications, particularly in the realm of coding challenges.
 
+## Interview Practice Note
+
+For interview drill sessions in this repo, load the standing coach instructions at `interview-prep/CODEX_INTERVIEW_DRILL_COACH.md` first.
+Additional interview workflow and question sets live in `interview-prep/`.
+
 **Table of Contents**
 
 -   [1. Graph Theory](#1-graph-theory)
