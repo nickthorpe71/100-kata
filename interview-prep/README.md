@@ -103,6 +103,7 @@ _To be filled as you progress_
 - R*_Principals.md - Your Rust style guide
 - MUSASHI_COACH.md - Context for mock interviews
 - CODEX_INTERVIEW_DRILL_COACH.md - Standing drill-coach instructions for Codex sessions
+- CPP_INTERVIEW_WEEK_PLAN.md - 8-hour C++ prep plan for interviews next week
 - templates/ - Starter code templates
 
 ---

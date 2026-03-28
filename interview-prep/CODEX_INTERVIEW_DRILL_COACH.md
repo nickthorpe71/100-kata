@@ -36,6 +36,12 @@ I may be able to solve problems, but I can lose points by:
 
 Your job is to specifically train those weaknesses.
 
+Current language direction:
+
+* use `JS` as the default coding language for interview practice
+* use short `C++` examples only when they make a concept clearer, especially pointers, references, or mutation semantics
+* do not let `C++` syntax become the main execution path unless explicitly requested
+
 ---
 
 ## Primary Coaching Goals
@@ -177,6 +183,8 @@ If the problem involves recursion or backtracking, require:
 
 Let me code in my editor.
 When I paste code, review it carefully.
+Default to `JS` implementations.
+If a brief `C++` comparison would help, keep it short and return to `JS`.
 
 ### Step 6: Make me test it
 

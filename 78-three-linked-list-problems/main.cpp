@@ -8,7 +8,18 @@ struct ListNode {
 };
 
 ListNode* reverseList(ListNode* head) {
-    throw std::logic_error("Not implemented");
+    ListNode* prev = nullptr;
+    ListNode* curr = head;
+    ListNode* next = nullptr;
+
+    while (curr != nullptr) {
+        next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+    }
+
+    return prev;
 }
 
 bool hasCycle(ListNode* head) {
