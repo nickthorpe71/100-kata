@@ -43,6 +43,10 @@ vector<int> topKFrequent(const vector<int>& nums, int k) {
 }
 
 int main() {
-    std::cout << "Implement the three functions for kata 90 and add tests." << std::endl;
+    vector<int> nums = {1,1,1,1,1,2,3,4,5,5,5,5,5,6,7,8,9,0,1, 99, 99, 99, 88};
+    vector<int> res = topKFrequent(nums, 3);
+    for (const auto& n : res) {
+        cout << n << "\n";
+    }
     return 0;
 }
