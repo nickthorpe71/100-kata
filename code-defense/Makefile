@@ -2,7 +2,7 @@ CXX = g++
 CXXFLAGS = -std=c++17 -O2 -Wall -Wextra
 LDFLAGS = -lncurses
 
-SRCS = $(wildcard src/*.cpp) $(wildcard src/screens/*.cpp)
+SRCS = $(wildcard src/*.cpp) $(wildcard src/screens/*.cpp) $(wildcard worlds/*/*.cpp)
 OBJS = $(SRCS:.cpp=.o)
 
 code-defense: $(OBJS)

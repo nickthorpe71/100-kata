@@ -5,6 +5,10 @@
 
 static std::string test_feedback;
 
+static const std::string& promptText(const WaveDef& wave) {
+    return wave.clear_prompt.empty() ? wave.description : wave.clear_prompt;
+}
+
 void handleCodingScreen(GameState& state, WriteTimer& timer, int key,
                         const std::string& player_dir) {
     const WaveDef& wave = state.waves[state.current_wave];
@@ -13,7 +17,7 @@ void handleCodingScreen(GameState& state, WriteTimer& timer, int key,
         timer.pause();
         test_feedback = "Compiling...";
 
-        ExecutionResult result = compileAndRun(player_dir, true, wave.time_limit_ms);
+        ExecutionResult result = compileAndRun(player_dir, true, wave.time_limit_ms, state.language);
 
         if (!result.compiled) {
             test_feedback = "COMPILE ERROR: " + result.error_msg;
@@ -29,7 +33,7 @@ void handleCodingScreen(GameState& state, WriteTimer& timer, int key,
     if (key == 's' || key == 'S') {
         timer.pause();
 
-        ExecutionResult result = compileAndRun(player_dir, false, wave.time_limit_ms);
+        ExecutionResult result = compileAndRun(player_dir, false, wave.time_limit_ms, state.language);
         state.last_result = result;
 
         if (!result.compiled) {
@@ -71,7 +75,7 @@ void drawCodingScreen(GameState& state, Renderer& r, WriteTimer& timer) {
 
     // Problem
     r.print(3, 2, "Problem:", COL_WHITE, true);
-    r.printWrapped(4, 2, wave.description, r.cols() - 4, COL_WHITE);
+    r.printWrapped(4, 2, promptText(wave), r.cols() - 4, COL_WHITE);
 
     r.print(7, 2, "Examples:", COL_WHITE, true);
     r.printWrapped(8, 4, wave.examples, r.cols() - 6, COL_CYAN);
@@ -87,7 +91,8 @@ void drawCodingScreen(GameState& state, Renderer& r, WriteTimer& timer) {
 
     r.drawHLine(22, 0, r.cols(), COL_WHITE);
 
-    r.print(23, 2, "Edit player/solution.cpp in your editor, then:", COL_WHITE);
+    std::string ext = (state.language == Language::JS) ? "solution.js" : "solution.cpp";
+    r.print(23, 2, "Edit player/" + ext + " in your editor, then:", COL_WHITE);
 
     // Test feedback
     if (!test_feedback.empty()) {

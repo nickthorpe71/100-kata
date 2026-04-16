@@ -104,6 +104,7 @@ _To be filled as you progress_
 - MUSASHI_COACH.md - Context for mock interviews
 - CODEX_INTERVIEW_DRILL_COACH.md - Standing drill-coach instructions for Codex sessions
 - CPP_INTERVIEW_WEEK_PLAN.md - 8-hour C++ prep plan for interviews next week
+- GOOGLE_TWO_WEEK_PLAN.md - 14-day Google-focused schedule using 60 min morning + 60 min night
 - templates/ - Starter code templates
 
 ---

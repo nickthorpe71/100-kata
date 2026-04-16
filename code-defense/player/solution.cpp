@@ -1,15 +1,13 @@
 #include <vector>
-#include <unordered_map>
-#include <unordered_set>
+#include <deque>
 #include <algorithm>
-#include <string>
 using namespace std;
-vector<int> twoSum(vector<int>& nums, int target) {
-    unordered_map<int,int> seen;
-    for (int i = 0; i < (int)nums.size(); i++) {
-        int comp = target - nums[i];
-        if (seen.count(comp)) return {seen[comp], i};
-        seen[nums[i]] = i;
-    }
-    return {};
+
+// The Porthole — an underwater lighthouse.
+// A diver bolted to the floor watches the current through a porthole.
+// Things drift past. The porthole groans.
+
+int watchTheFlow(vector<int>& current, int target) {
+    // TODO: implement
+    return 0;
 }

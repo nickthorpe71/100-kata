@@ -2,11 +2,7 @@
 
 void handleTitleScreen(GameState& state, int key) {
     if (key == '\n' || key == KEY_ENTER || key == ' ') {
-        state.game_started = true;
-        state.current_wave = 0;
-        state.lives = 5;
-        state.failed_waves.clear();
-        state.current_screen = Screen::WAVE_INTRO;
+        state.current_screen = Screen::WORLD_SELECT;
     }
     if (key == 'q') {
         state.quit = true;
